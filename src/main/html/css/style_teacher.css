@@ -75,9 +75,12 @@ body{
 }
 
 .info .img img{
-    text-align: center;
     width: 764px;
     height: 410px;
+}
+
+.info .img{
+    text-align: center;
 }
 
 
