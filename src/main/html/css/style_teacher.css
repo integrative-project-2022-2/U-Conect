@@ -10,6 +10,21 @@ body{
     background: #004596;
 }
 
+.name .img{
+    position: absolute;
+    top: 8%;
+    left: 5%;
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.name .img img{
+    width: 200px;
+    height: 200px;
+}
+
 .name .content{
     width: 50%;
     height: 50%;
@@ -22,6 +37,14 @@ body{
     font-family: 'Roboto', sans-serif;
     font-weight: bolder;
     font-size: 50px;
+    margin-bottom: 0;
+}
+
+.name .content .p-2 {
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    font-size: 17px;
     margin-bottom: 0;
 }
 
@@ -49,6 +72,12 @@ body{
     text-align: left;
     font-weight: bolder;
     
+}
+
+.info .img img{
+    text-align: center;
+    width: 764px;
+    height: 410px;
 }
 
 
