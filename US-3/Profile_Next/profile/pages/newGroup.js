@@ -13,14 +13,17 @@ export default function Home() {
       <div className={styles.name}>
 
         <div className={styles.content}>
-            <p className={styles.p-1}>GRUPOS DE ESTUDIO</p>
-            <Link href="/newGroup">
-              <button>Nuevo grupo</button>
+            <p className={styles.p-1}>NUEVO GRUPO</p>
+            <Link href="/">
+              <button>Aceptar</button>
             </Link>
         </div>
       </div>
   
+    {/* <CategoryList items={["Mariana", "Pedro", "Titi"]} title = "COE1"></CategoryList> */}
+
     <CategoryList items={["Mariana", "Pedro", "Titi"]} title = "COE1"></CategoryList>
+
     
     </div>
     
