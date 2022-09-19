@@ -11,26 +11,21 @@ export default function Home() {
       </Head>
       <div className={styles.name}>
         <div className={styles.img}>
+         
         </div>
         <div className={styles.content}>
-            <p className={styles.p-1}>Fulanito Garcia</p>
-            <p className={styles.p-2}>Rol: Monitor</p>
-            <p className={styles.p-2}>Centro apoyo al que pertenece</p>
-            <p className={styles.p-2}>Numero de oficina:</p>
-            <p className={styles.p-2}>Correo electronico:</p>
-            <p className={styles.p-2}>Telefono:</p>
+            <p className={styles.p-1}>Compañer@s: 3</p>
+            <p className={styles.p-2}>Profesores: 3</p>
+            <p className={styles.p-2}>Monitores: 3</p>
         </div>
     </div>
 
-    <CategoryList items={["COE1","APO1","FUTBOL"]} title = "Materias a las que brinda apoyo">Otra cosa</CategoryList>
-    <CategoryList items={["COE1","APO1","FUTBOL"]} title = "Materias cursadas">Algo</CategoryList>
+    <CategoryList items={["Jose Pedro","Mariana","Felipe"]} title = "Lista de contactos"></CategoryList>
+    <CategoryList items={["COE1","APO1","FUTBOL"]} title = "Cursos"></CategoryList>
+    <CategoryList items={["COE1","APO1","FUTBOL"]} title = "Grupos de estudio"></CategoryList>
     
 
-    <div className={styles.info}>
-        <p className={styles.title}>Disponibilidad horaria:</p>
-        <div className={styles.img}>
-        </div>
-    </div>
+    
     </div>
     
   )
