@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/profile.module.css'
 import CategoryList from '../components/categoryList'
+import selectBox from '../components/selectBox'
 import Link from 'next/link'
 
 export default function Home() {
@@ -28,7 +29,8 @@ export default function Home() {
           <CategoryList items={["COE1"]} title = "Grupos de estudio"></CategoryList>
         </a>
       </Link>
-      
+
+
   
     
     
