@@ -2,14 +2,9 @@ import Head from 'next/head'
 import styles from '../styles/profile.module.css'
 import CategoryList from '../components/categoryList'
 import Link from 'next/link'
+import Transfer from '../components/Transfer_list'
 
 export default function newGroup() {
-
-  const l = ["Juanito", "JuanFe", "Jesus", "Rocio"]
-  const borrar = () => {
-    alert("Funcion activa")
-  }
-
   return (
     <div className={styles.maincontainer}>
       <Head>
@@ -26,24 +21,9 @@ export default function newGroup() {
         </div>
       </div>
 
-      {/* <CategoryList items={["Mariana", "Pedro", "Titi"]} title = "COE1"></CategoryList> */}
+      <Transfer></Transfer>
 
-      <table>
-        <thead>
-          <th>
-          <table className=''>
-            {l.map((e) => (
-              <tr onClick={borrar}>{e}</tr>
-            ))}
-          </table>
-          </th>
-          <th>
-          <button className='btn btn-primary' onClick={borrar}>+</button>
-          </th>
-        </thead>
-      </table>
 
-      
 
 
     </div>
