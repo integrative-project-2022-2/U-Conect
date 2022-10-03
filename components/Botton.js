@@ -13,7 +13,7 @@ export default function BasicSelect() {
   };
 
   return (
-    <Box sx={{ minWidth: 120 }}>
+    <Box className="w-75 bg-success  text-white text-center m-auto p-3 mb-5 rounded shadow">
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Materia</InputLabel>
         <Select

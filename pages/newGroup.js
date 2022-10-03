@@ -22,8 +22,8 @@ export default function newGroup() {
         </div>
       </div>
 
-
       <Botton></Botton>
+
       <Transfer></Transfer>
 
 
