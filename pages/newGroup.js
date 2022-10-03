@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import styles from '../styles/profile.module.css'
-import CategoryList from '../components/categoryList'
+import CategoryList from '../components/CategoryList.js'
 import Link from 'next/link'
 import Transfer from '../components/Transfer_list'
+import Botton from '../components/Botton'
 
 export default function newGroup() {
   return (
@@ -21,6 +22,8 @@ export default function newGroup() {
         </div>
       </div>
 
+
+      <Botton></Botton>
       <Transfer></Transfer>
 
 
