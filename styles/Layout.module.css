@@ -1,0 +1,40 @@
+  .block, .label {
+    border: #7C7DCF solid 1px;
+  }
+  
+  .header {
+    display: flex;
+    height: 60px;
+    background-color: #7C7DCF;
+  }
+
+  .main{
+    display: flex;
+    height: 850px;
+    background-color: #9D9AE3;
+  }
+
+  .main div {
+    margin: auto;
+    padding: 20px 20px 20px 35px;
+    background-color: #9DA8FA;
+  }
+
+  .table{
+    margin: auto;
+    width: 300px;
+  }
+
+  .right {
+    margin-left: auto;
+    padding: auto;
+  }
+
+  .label{
+    color: white;
+    display: flex;
+  }
+
+  .imag{
+    padding: 5px 5px 5px 10px;
+  }
