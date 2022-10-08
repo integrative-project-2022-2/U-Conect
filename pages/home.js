@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Notification from "../components/Notification"
 
 export default function home() {
   return (
@@ -7,7 +8,7 @@ export default function home() {
         <title>Pagina principal</title>
       </Head>
       <header>
-        
+        <Notification/>
       </header>
     </div>
   )
