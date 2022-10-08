@@ -49,14 +49,14 @@ export default function ConsultInfoLayout({page, student, counseling, fun}) {
             <button onClick={fun}>INGRESAR A ASESORIA</button>
           </div> 
           <div className={styles.table}>
-            <table className="table">
-              <thead className="thead-dark">
+            <table className="table table-light">
+              <thead className="thead-light">
                 <tr><th scope="col">Participantes: </th></tr>
               </thead>
               <tbody>
                 {counseling.participants.map(e => (
                   <tr>
-                    <td>{e}</td>
+                    <td className={styles.participantItem}>{e}</td>
                   </tr>
                 ))}
               </tbody>
