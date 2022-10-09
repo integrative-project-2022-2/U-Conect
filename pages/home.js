@@ -1,5 +1,6 @@
 import Head from "next/head";
-import Notification from "../components/Notification"
+import HomeLayout from "../components/HomeLayout"
+import JoinConsole from "/pages/Counseling_Activities/JoinCounseling"
 
 export default function home() {
   return (
@@ -8,7 +9,9 @@ export default function home() {
         <title>Pagina principal</title>
       </Head>
       <header>
-        <Notification/>
+        <HomeLayout>
+          <JoinConsole/>
+        </HomeLayout>
       </header>
     </div>
   )
