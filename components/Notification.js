@@ -12,7 +12,6 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import CssBaseline from '@mui/material/CssBaseline';
 
 import Image from 'next/image';
 
@@ -56,7 +55,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function PrimarySearchAppBar({ notifications, open, fun}) {
+export default function PrimarySearchAppBar({ notifications }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
@@ -68,6 +67,10 @@ export default function PrimarySearchAppBar({ notifications, open, fun}) {
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
+
+  function fun(){
+    alert("Si se ejecuto")
+  }
 
   const menuId = 'primary-notificacion-account-menu';
   const renderMenu = (
@@ -91,21 +94,17 @@ export default function PrimarySearchAppBar({ notifications, open, fun}) {
     </Menu>
   );
   return (
-    <Box sx={{ flexGrow: 1, display: 'flex' }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open} sx={{ bgcolor: "#7C7DCF" }}>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
         <Toolbar>
           <IconButton
+            size="large"
+            edge="start"
             color="inherit"
             aria-label="open drawer"
-            onClick={fun}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: 'none' }),
-            }}
+            sx={{ mr: 2 }}
           >
-            <MenuIcon onClick={fun} />
+            <MenuIcon onClick={fun}/>
           </IconButton>
           <Typography
             variant="h6"
@@ -114,6 +113,12 @@ export default function PrimarySearchAppBar({ notifications, open, fun}) {
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
             U-Connect
+            <Image
+            src="/image/profile_default.png"
+            width={50}
+            height={50}
+            >
+            </Image>
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -143,4 +148,5 @@ export default function PrimarySearchAppBar({ notifications, open, fun}) {
       {renderMenu}
     </Box>
   );
+
 }

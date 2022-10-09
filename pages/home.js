@@ -1,34 +1,13 @@
-import Head from "next/head";
-import { useState } from "react";
-import Notification from "../components/Notification"
-import SideBar from "../components/SideBar";
+import HomeLayout from "../components/HomeLayout"
+import JoinConsole from "/pages/Counseling_Activities/JoinCounseling"
+
 
 export default function home() {
-
-  const [open, setOpen] = useState(false)
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
-  return (
+  return(
     <div>
-      <Head>
-        <title>Pagina principal</title>
-      </Head>
-      <header>
-        <Notification
-        open={open}
-        fun={handleDrawerOpen}
-        />
-        <SideBar 
-        open={open}
-        fun={handleDrawerClose}/>
-      </header>
+      <HomeLayout>
+        <JoinConsole></JoinConsole>
+      </HomeLayout>
     </div>
   )
 }
