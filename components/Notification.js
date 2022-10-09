@@ -13,6 +13,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
+import Image from 'next/image';
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -53,88 +55,98 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function PrimarySearchAppBar({notifications}) {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-  
-    const isMenuOpen = Boolean(anchorEl);
-  
-    const handleNotificationMenuOpen = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
-  
-    const handleMenuClose = () => {
-      setAnchorEl(null);
-    };
-  
-    const menuId = 'primary-notificacion-account-menu';
-    const renderMenu = (
-      <Menu
-        anchorEl={anchorEl}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        id={menuId}
-        keepMounted
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        open={isMenuOpen}
-        onClose={handleMenuClose}
-      >
-        <MenuItem onClick={handleMenuClose}>Notificacion1</MenuItem>
-        <MenuItem onClick={handleMenuClose}>Notificacion2</MenuItem>
-      </Menu>
-    );
-    return (
-        <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="static">
-            <Toolbar>
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="open drawer"
-                sx={{ mr: 2 }}
-              >
-                <MenuIcon />
-              </IconButton>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{ display: { xs: 'none', sm: 'block' } }}
-              >
-                U-Connect
-              </Typography>
-              <Search>
-                <SearchIconWrapper>
-                  <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  placeholder="Search…"
-                  inputProps={{ 'aria-label': 'search' }}
-                />
-              </Search>
-              <Box sx={{ flexGrow: 1 }} />
-              <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                <IconButton
-                  size="large"
-                  aria-label="show 8000 new notifications"
-                  aria-controls={menuId}
-                  onClick={handleNotificationMenuOpen}
-                  color="inherit"
-                >
-                  <Badge badgeContent={8000} color="error">
-                    <NotificationsIcon />
-                  </Badge>
-                </IconButton>
-              </Box>
-            </Toolbar>
-          </AppBar>
-          {renderMenu}
-        </Box>
-      );
-    
+export default function PrimarySearchAppBar({ notifications }) {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const isMenuOpen = Boolean(anchorEl);
+
+  const handleNotificationMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  function fun(){
+    alert("Si se ejecuto")
   }
+
+  const menuId = 'primary-notificacion-account-menu';
+  const renderMenu = (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      id={menuId}
+      keepMounted
+      transformOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+    >
+      <MenuItem onClick={handleMenuClose}>Notificacion1</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Notificacion2</MenuItem>
+    </Menu>
+  );
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon onClick={fun}/>
+          </IconButton>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ display: { xs: 'none', sm: 'block' } }}
+          >
+            U-Connect
+            <Image
+            src="/image/profile_default.png"
+            width={50}
+            height={50}
+            >
+            </Image>
+          </Typography>
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search>
+          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <IconButton
+              size="large"
+              aria-label="show 8000 new notifications"
+              aria-controls={menuId}
+              onClick={handleNotificationMenuOpen}
+              color="inherit"
+            >
+              <Badge badgeContent={8000} color="error">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
+          </Box>
+        </Toolbar>
+      </AppBar>
+      {renderMenu}
+    </Box>
+  );
+
+}
