@@ -12,6 +12,7 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import CssBaseline from '@mui/material/CssBaseline';
 
 import Image from 'next/image';
 
@@ -55,7 +56,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function PrimarySearchAppBar({ notifications }) {
+export default function PrimarySearchAppBar({ notifications, open, fun}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
@@ -67,10 +68,6 @@ export default function PrimarySearchAppBar({ notifications }) {
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
-
-  function fun() {
-    alert("Si se ejecuto")
-  }
 
   const menuId = 'primary-notificacion-account-menu';
   const renderMenu = (
@@ -94,15 +91,19 @@ export default function PrimarySearchAppBar({ notifications }) {
     </Menu>
   );
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 1, display: 'flex' }}>
+      <CssBaseline />
+      <AppBar position="fixed" open={open} sx={{ bgcolor: "#7C7DCF" }}>
         <Toolbar>
           <IconButton
-            size="large"
-            edge="start"
             color="inherit"
             aria-label="open drawer"
-            sx={{ mr: 2 }}
+            onClick={fun}
+            edge="start"
+            sx={{
+              marginRight: 5,
+              ...(open && { display: 'none' }),
+            }}
           >
             <MenuIcon onClick={fun} />
           </IconButton>
@@ -113,12 +114,6 @@ export default function PrimarySearchAppBar({ notifications }) {
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
             U-Connect
-            <Image
-              src="/image/profile_default.png"
-              width={50}
-              height={50}
-            >
-            </Image>
           </Typography>
           <Search>
             <SearchIconWrapper>
