@@ -68,7 +68,7 @@ export default function PrimarySearchAppBar({ notifications }) {
     setAnchorEl(null);
   };
 
-  function fun(){
+  function fun() {
     alert("Si se ejecuto")
   }
 
@@ -104,7 +104,7 @@ export default function PrimarySearchAppBar({ notifications }) {
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
-            <MenuIcon onClick={fun}/>
+            <MenuIcon onClick={fun} />
           </IconButton>
           <Typography
             variant="h6"
@@ -114,9 +114,9 @@ export default function PrimarySearchAppBar({ notifications }) {
           >
             U-Connect
             <Image
-            src="/image/profile_default.png"
-            width={50}
-            height={50}
+              src="/image/profile_default.png"
+              width={50}
+              height={50}
             >
             </Image>
           </Typography>
@@ -148,5 +148,4 @@ export default function PrimarySearchAppBar({ notifications }) {
       {renderMenu}
     </Box>
   );
-
 }
