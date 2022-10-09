@@ -3,17 +3,12 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { deepPurple, pink } from '@mui/material/colors';
-import register from './register';
-
 
 
 
@@ -45,11 +40,22 @@ export default function SignIn() {
             alignItems: 'center',
           }}
         >
-          <Avatar alt="" src="https://png.pngtree.com/element_our/png_detail/20181010/book-icon-logo-png_125608.jpg" />
+          <Avatar alt="" src="https://cdn-icons-png.flaticon.com/512/3534/3534139.png" sx={{ width: 60, height: 60 }}/>
           <Typography component="h1" variant="h5">
-            Bienvenido/a a U-Conect
+            Formulario de registro
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="name"
+              label="Nombre Completo"
+              name="name"
+              autoComplete="name"
+              autoFocus
+            />
+    
             <TextField
               margin="normal"
               required
@@ -70,9 +76,15 @@ export default function SignIn() {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Recuérdame"
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Confirmar contraseña"
+              type="password"
+              id="password"
+              autoComplete="current-password"
             />
             <Button
               
@@ -83,21 +95,12 @@ export default function SignIn() {
               
                           
             >
-              Iniciar Sesión
+              Registrarme
             
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="" variant="body2">
-                  Olvidaste tu contraseña?
+                <Link href='/' variant="body2" alignContent={"center"}>
+                  {"Ya tienes cuenta? Inicia sesión"}
                 </Link>
-              </Grid>
-              <Grid item>
-                <Link href="register" variant="body2">
-                  {"No tienes cuenta? Regístrate aquí"}
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
       </Container>

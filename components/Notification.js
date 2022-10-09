@@ -98,7 +98,7 @@ export default function PrimarySearchAppBar({notifications}) {
                 aria-label="open drawer"
                 sx={{ mr: 2 }}
               >
-                <MenuIcon />
+                <MenuIcon/>
               </IconButton>
               <Typography
                 variant="h6"
@@ -110,7 +110,7 @@ export default function PrimarySearchAppBar({notifications}) {
               </Typography>
               <Search>
                 <SearchIconWrapper>
-                  <SearchIcon />
+                  <SearchIcon/>
                 </SearchIconWrapper>
                 <StyledInputBase
                   placeholder="Search…"
