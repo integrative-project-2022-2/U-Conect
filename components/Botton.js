@@ -4,11 +4,11 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function SelectAutoWidth({materia}) {
-  const [age, setAge] = React.useState('');
+export default function SelectAutoWidth({ materia }) {
+  const [materias, setMateria] = React.useState("");
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setMateria(event.target.value);
   };
 
   return (
@@ -18,13 +18,13 @@ export default function SelectAutoWidth({materia}) {
         <Select
           labelId="demo-simple-select-autowidth-label"
           id="demo-simple-select-autowidth"
-          value={age}
+          value={materias}
           onChange={handleChange}
           autoWidth
           label="Materia"
         >
-          {materia.map((text,index)=>
-            <MenuItem value={index}>{text}</MenuItem>
+          {materia.map((text) =>
+            <MenuItem value={text}>{text}</MenuItem>
           )}
         </Select>
       </FormControl>

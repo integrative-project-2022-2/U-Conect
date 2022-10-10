@@ -22,7 +22,11 @@ function union(a, b) {
   return [...a, ...not(b, a)];
 }
 
-export default function TransferList({contacts}) {
+function retChoose() {
+  return right
+}
+
+export default function TransferList({ contacts }) {
   const [checked, setChecked] = React.useState([]);
   const [left, setLeft] = React.useState(["JuanFe", "JuanK", "Titi", "Lina"]);
   const [right, setRight] = React.useState([]);
@@ -117,10 +121,10 @@ export default function TransferList({contacts}) {
                   }}
                 />
               </ListItemIcon>
-              <ListItemText id={labelId} primary={value}/>
-              
-              
-              
+              <ListItemText id={labelId} primary={value} />
+
+
+
             </ListItem>
           );
         })}
