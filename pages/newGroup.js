@@ -21,7 +21,7 @@ export default function newGroup() {
 
         <div className={styles.content}>
           <p className={styles.p - 1}>NUEVO GRUPO</p>
-          <Link href="/">
+          <Link href="/group">
             <button className='btn btn-primary'>Aceptar</button>
           </Link>
         </div>
