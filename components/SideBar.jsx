@@ -19,8 +19,6 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
-import JoinCounseling from '/pages/Counseling_Activities/JoinCounseling'
-
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -88,52 +86,19 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function MiniDrawer() {
+export default function SideBar(fun) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
   const [children, setChildren] = React.useState(<h1>Hola</h1>)
-  
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-  
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
-  function fun(){
-    setChildren(<JoinCounseling/>)
-  }
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open} sx={{ bgcolor: "#7C7DCF" }}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" open={open}>
+    <Drawer variant="permanent" open={open}>
         {/*Es el encabezado del side menu que abre */}
         <DrawerHeader>
           {/*Este es el boton de regreso al darle */}
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={fun}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
@@ -143,7 +108,6 @@ export default function MiniDrawer() {
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               {/*Es el que pinta el boton dentro de la lista */}
               <ListItemButton
-                onClick={fun}
                 sx={{
                   minHeight: 48,
                   justifyContent: open ? 'initial' : 'center',
@@ -191,7 +155,5 @@ export default function MiniDrawer() {
           ))}
         </List>
       </Drawer>
-      <div>{children}</div>
-    </Box>
-  );
+  )
 }
