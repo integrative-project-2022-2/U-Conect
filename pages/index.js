@@ -12,9 +12,6 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { deepPurple, pink } from '@mui/material/colors';
-import register from './register';
-
-
 
 
 
@@ -33,6 +30,10 @@ export default function SignIn() {
     });
   };
 
+  
+const [name, setName] = React.useState(' ');
+const [password, setPassword] = React.useState(' ');
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -49,16 +50,29 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Bienvenido/a a U-Conect
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          
+          <Box>
+            <form
+                onSubmit={ev=>{
+                  ev.preventDefault();
+
+                  login(name, password);
+                }}            
+            
+            >
+            
             <TextField
+            
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email"
               name="email"
+              label="Email"
+              type="email"
               autoComplete="email"
               autoFocus
+              onChange={ev=>setName(ev.target.value)}
+
             />
             <TextField
               margin="normal"
@@ -69,6 +83,7 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={ev=>setPassword(ev.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -79,13 +94,15 @@ export default function SignIn() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              
-                          
+              sx={{ mt: 3, mb: 2 }}         
+                                        
             >
               Iniciar Sesión
             
             </Button>
+            </form>
+            
+           
             <Grid container>
               <Grid item xs>
                 <Link href="" variant="body2">
@@ -98,9 +115,20 @@ export default function SignIn() {
                 </Link>
               </Grid>
             </Grid>
+
           </Box>
         </Box>
       </Container>
     </ThemeProvider>
   );
+
+  function login(name, password){
+    if(name === "juan@hotmail.com" && password === "password")
+      
+      location.replace('home')
+
+    else alert('Email o contraseña incorrectos, por favor verifica los datos ingresados')
+      
+  };
+
 }
