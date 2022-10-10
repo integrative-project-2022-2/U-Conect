@@ -131,7 +131,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-export default function PrimarySearchAppBar({children, button}) {
+export default function PrimarySearchAppBar({children, button, notifications}) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -170,8 +170,9 @@ export default function PrimarySearchAppBar({children, button}) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Notificacion1</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Notificacion2</MenuItem>
+      {notifications.notification.map(e=>(
+        <MenuItem onClick={handleMenuClose}>{e+notifications.fecha}</MenuItem>
+      ))}
     </Menu>
   );
   return (
