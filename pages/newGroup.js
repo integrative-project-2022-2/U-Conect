@@ -5,10 +5,12 @@ import Link from 'next/link'
 import Transfer from '../components/Transfer_list'
 import Botton from '../components/Botton'
 
-import TextField from '@mui/material'
-import MenuItem from '@mui/material'
+import { useState } from 'react'
 
 export default function newGroup() {
+  const [materias] = useState({
+    materias: ["Organizaciones","Algebra y funciones"]
+  })
   return (
     <div className={styles.maincontainer}>
       <Head>
@@ -25,7 +27,7 @@ export default function newGroup() {
         </div>
       </div>
 
-      <Botton></Botton>
+      <Botton materia={materias.materias}></Botton>
       
 
 
