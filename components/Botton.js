@@ -13,8 +13,9 @@ export default function BasicSelect() {
   };
 
   return (
-    <Box className="w-75 bg-success  text-white text-center m-auto p-3 mb-5 rounded shadow">
-      <FormControl fullWidth>
+    <Box sx={{width: 1500, height: 353
+    }}>
+      <FormControl>
         <InputLabel id="demo-simple-select-label">Materia</InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -22,6 +23,7 @@ export default function BasicSelect() {
           value={age}
           label="Materia"
           onChange={handleChange}
+          fullWidth sx={{width: 300}}
         >
           <MenuItem value={10}>Algebra y funciones</MenuItem>
           <MenuItem value={20}>Calculo de una variable</MenuItem>

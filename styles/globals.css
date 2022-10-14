@@ -45,8 +45,8 @@ html, body {
   /* border: 3px solid white; */
   height: 100vh;
   /* background-color: #4d4c5a; */
-  background-color: var(--dark-main);
+  
   display: grid;
   justify-content: center;
-  color: white
+  color: black
 }

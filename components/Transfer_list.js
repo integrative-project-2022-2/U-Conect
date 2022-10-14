@@ -22,7 +22,11 @@ function union(a, b) {
   return [...a, ...not(b, a)];
 }
 
-export default function TransferList() {
+function retChoose() {
+  return right
+}
+
+export default function TransferList({ contacts }) {
   const [checked, setChecked] = React.useState([]);
   const [left, setLeft] = React.useState(["JuanFe", "JuanK", "Titi", "Lina"]);
   const [right, setRight] = React.useState([]);
@@ -68,7 +72,7 @@ export default function TransferList() {
   const customList = (title, items) => (
     <Card>
       <CardHeader
-        sx={{ px: 2, py: 1 }}
+        sx={{ px: 15, py: 10, padding: 5 }}
         avatar={
           <Checkbox
             onClick={handleToggleAll(items)}
@@ -117,10 +121,10 @@ export default function TransferList() {
                   }}
                 />
               </ListItemIcon>
-              <ListItemText id={labelId} primary={value}/>
-              
-              
-              
+              <ListItemText id={labelId} primary={value} />
+
+
+
             </ListItem>
           );
         })}

@@ -24,6 +24,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 
+import styles from "../styles/Home.module.css"
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -262,7 +264,7 @@ export default function PrimarySearchAppBar({children, button, notifications}) {
           ))}
         </List>
       </Drawer>
-      <div>{children}</div>
+      <div className={styles.main}>{children}</div>
       {renderMenu}
     </Box>
   );

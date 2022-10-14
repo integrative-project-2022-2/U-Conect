@@ -28,6 +28,8 @@ export default function SignIn() {
     });
   };
 
+  
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -44,6 +46,8 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Formulario de registro
           </Typography>
+
+          
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
               margin="normal"

@@ -3,9 +3,12 @@ import { useState } from "react"
 import Head from "next/head"
 import HomeLayout from "../components/HomeLayout"
 
+import NewGroup from "/pages/Counseling_Activities/createNewGroups"
 import JoinAdvisory from "/pages/Counseling_Activities/JoinCounseling"
 import RetireAdvisory from "/pages/Counseling_Activities/retireadvisory"
 import UserStory5 from "/pages/Counseling_Activities/hu5"
+import UserStoryJesusGarces from "/pages/Counseling_Activities/Profile2"
+import Schedule from "/pages/Counseling_Activities/schedule"
 
 export default function home() {
 
@@ -19,12 +22,18 @@ export default function home() {
   const [button] = useState({
     name: [
       "New Group",
-      "Sebastian US",
+      "Schedule",
+      "Join to Group",
       "Join to Advisory",
-      "Leave Advisory"
+      "Leave Advisory",
+      "Show Profile"
     ],
-    fun: [join, us5, join, leave]
+    fun: [newG, sched, us5, join, leave, showP]
   })
+
+  function newG() {
+    setChildren(<NewGroup />)
+  }
 
   function join() {
     setChildren(<JoinAdvisory />)
@@ -36,6 +45,14 @@ export default function home() {
 
   function us5() {
     setChildren(<UserStory5 />)
+  }
+
+  function showP(){
+    setChildren(<UserStoryJesusGarces />)
+  }
+
+  function sched(){
+    setChildren(<Schedule />)
   }
 
   return (
