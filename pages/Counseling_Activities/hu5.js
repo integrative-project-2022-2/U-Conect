@@ -5,10 +5,10 @@ import Body from "/components/Body.js";
 
 export default function Hu5() {
   return (
-    <>
-      <Head />
-      <Header />
+    <div>
+      {/* <Head />
+      <Header /> */}
       <Body />
-    </>
+    </div>
   );
 }
