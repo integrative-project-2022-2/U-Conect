@@ -34,7 +34,7 @@ export default function ConsultInfoLayout({page, student, counseling, fun}) {
             </div>
         </header>
         <main className={styles.main}>
-          <div className={styles.info}>
+          <div>
             <h3>{counseling.name}</h3>
             <h5>Vista: {counseling.view}</h5>
             <h5>Fecha: {counseling.date}</h5>

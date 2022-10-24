@@ -23,18 +23,12 @@
   .table{
     margin: auto;
     width: 400px;
-    height: 475px;
+    height: 480px;
     overflow: scroll;
   }
 
-  .info{
-    width: 900px;
-    height: 475px;
-    margin: 0px 20px 0px 0px;
-  }
-
   .right {
-    margin-right: auto;
+    margin-left: auto;
     padding: auto;
   }
 

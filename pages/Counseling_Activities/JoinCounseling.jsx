@@ -17,7 +17,7 @@ export default function JoinCounseling() {
   const [counseling, setCounseling] = useState({
     name: "Primer Entrega de Producto",
     subject: "Proyecto Integrador I",
-    view: "Privado",
+    view: "Publica",
     type: "Asesoria",
     date: "10 de Octubre del 2022",
     hour: "6:00 P.M.",
