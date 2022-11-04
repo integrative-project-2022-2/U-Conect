@@ -1,33 +1,34 @@
 import * as React from 'react';
+import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function SelectAutoWidth({ materia }) {
-  const [materias, setMateria] = React.useState("");
+export default function BasicSelect() {
+  const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
-    setMateria(event.target.value);
+    setAge(event.target.value);
   };
 
   return (
-    <div>
-      <FormControl sx={{ m: 1, minWidth: 100 }}>
-        <InputLabel id="demo-simple-select-autowidth-label">Materia</InputLabel>
+    <Box sx={{width: 1500, height: 353
+    }}>
+      <FormControl>
+        <InputLabel id="demo-simple-select-label">Materia</InputLabel>
         <Select
-          labelId="demo-simple-select-autowidth-label"
-          id="demo-simple-select-autowidth"
-          value={materias}
-          onChange={handleChange}
-          autoWidth
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={age}
           label="Materia"
+          onChange={handleChange}
+          fullWidth sx={{width: 300}}
         >
-          {materia.map((text) =>
-            <MenuItem value={text}>{text}</MenuItem>
-          )}
+          <MenuItem value={10}>Algebra y funciones</MenuItem>
+          <MenuItem value={20}>Calculo de una variable</MenuItem>
         </Select>
       </FormControl>
-    </div>
+    </Box>
   );
 }
