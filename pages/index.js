@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
 export default function Home({calendar,monitoria}) {
@@ -43,7 +44,7 @@ export default function Home({calendar,monitoria}) {
               <div id="invitacion1" className={styles.btplacer}>
               <ul>
                 <li>
-                  <form action="http://localhost:3000/api/DB_Controller2HU21" method="POST">
+                  <form action="http://localhost:3000/api/DB_Controller2_HU21" method="POST">
                     <Link href={monitoria}>
                        <a className={styles.invitationTitle} title="Ver mas informacion"> Invitación a grupo #1 </a> 
                     </Link>        
@@ -88,3 +89,5 @@ return { props: {
   monitoria :"/monitoria"  
 }}
 }
+
+
