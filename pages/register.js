@@ -11,24 +11,58 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { deepPurple, pink } from '@mui/material/colors';
 
 
-
-
 const theme = createTheme({palette: {
   primary: deepPurple,
 },
 });
 
-export default function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+let state = {
+  data : {
+    name: "",
+    email: "",
+    username: "",
+    password: ""
+  },
+  confPassword: ""
 
+}
+
+function handleChange(e){
+  let value = e.target.value;
+  switch (e.target.name){
+    case "name": 
+    state.data.name = value;
+    break;
+    case "email": 
+    state.data.email = value;
+    break;
+    case "username": 
+    state.data.username = value;
+    break;
+    case "password": state.data.password = value;
+    break;
+    case "passwordConf":  state.confPassword = value;
+    break;
+  }
+}
+
+async function handleSubmit(e){
+  e.preventDefault();
+  if (state.data.password != state.confPassword){
+    alert("Password doesn't match")
+  }else{
+    console.log(state.data)
+    await fetch("http://localhost:3000/api/registerUser",{
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(state.data)
+    })
+  }
   
+}
+export default function SignIn() {
 
   return (
     <ThemeProvider theme={theme}>
@@ -48,28 +82,42 @@ export default function SignIn() {
           </Typography>
 
           
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <form onSubmit={handleSubmit}>
+
           <TextField
               margin="normal"
               required
               fullWidth
-              id="name"
               label="Nombre Completo"
               name="name"
               autoComplete="name"
               autoFocus
+              onChange={handleChange}
+            />
+
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              label="Nombre de usuario"
+              name="username"
+              autoComplete="username"
+              autoFocus
+              onChange={handleChange}
             />
     
             <TextField
               margin="normal"
               required
               fullWidth
-              id="email"
               label="Email"
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={handleChange}
+              
             />
+                      
             <TextField
               margin="normal"
               required
@@ -77,18 +125,18 @@ export default function SignIn() {
               name="password"
               label="Contraseña"
               type="password"
-              id="password"
               autoComplete="current-password"
+              onChange={handleChange}
             />
             <TextField
               margin="normal"
               required
               fullWidth
-              name="password"
+              name="passwordConf"
               label="Confirmar contraseña"
               type="password"
-              id="password"
               autoComplete="current-password"
+              onChange={handleChange}
             />
             <Button
               
@@ -105,7 +153,8 @@ export default function SignIn() {
                 <Link href='/' variant="body2" alignContent={"center"}>
                   {"Ya tienes cuenta? Inicia sesión"}
                 </Link>
-          </Box>
+            </form>
+          
         </Box>
       </Container>
     </ThemeProvider>
