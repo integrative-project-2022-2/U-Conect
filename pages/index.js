@@ -46,23 +46,27 @@ function handleChange(e){
 
 async function handleSubmit(e){  
 
+  
+
   e.preventDefault();
-    var response = await fetch("http://localhost:3000/api/loginUser",{
+    const response = await fetch("http://localhost:3000/api/loginUser",{
+      
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(state.data)
       
+      body: JSON.stringify(state.data)
+           
     })
-
-    var r = await response.json();
-    console.log(r)
-    if(!r.username){
+    const data = await response.json();
+    console.log(data)
+  
+    if(data === 0){
       alert("Password or Username is not correct")
       state.data.username = "";
       state.data.password = ""
-    } else{
+    } else {
       location.replace('/home')
     }
     
