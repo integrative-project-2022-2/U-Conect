@@ -4,7 +4,7 @@ var db;
 
 if (!db) {
     db = new Client({
-        connectionString: process.env.DATABASE_URL,
+        connectionString: process.env.DATABASE_URI,
         ssl: {
             rejectUnauthorized: false
         }
