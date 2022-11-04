@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {useState, useEffect, React} from 'react';
 import { styled, alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -23,7 +23,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
-
 import styles from "../styles/Home.module.css"
 
 const Search = styled('div')(({ theme }) => ({
@@ -134,9 +133,19 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar({children, button, notifications}) {
+
+  const {data, setData} = useState(false);
+  useEffect(async ()=>{
+    const response = await fetch("/api/notification_DB_Controller_Consulta")
+    const dt = await response.json();
+    setData(dt);
+    console.log(dt);
+  })
+  
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [open, setOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [notification, setNotification] = useState(null);
   const isMenuOpen = Boolean(anchorEl);
   
   const handleDrawerOpen = () => {
@@ -173,7 +182,7 @@ export default function PrimarySearchAppBar({children, button, notifications}) {
       onClose={handleMenuClose}
     >
       {notifications.notification.map(e=>(
-        <MenuItem onClick={handleMenuClose}>{e+notifications.fecha}</MenuItem>
+        <div onClick={handleMenuClose}><div>{e}</div><div>{notifications.fecha}</div></div>
       ))}
     </Menu>
   );
@@ -269,3 +278,5 @@ export default function PrimarySearchAppBar({children, button, notifications}) {
     </Box>
   );
 }
+
+
