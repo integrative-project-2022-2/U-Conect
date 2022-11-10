@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/botton.module.css'
 import Chipa from '/components/Chipa'
 
 export default function Home() {
@@ -70,7 +70,7 @@ export default function Home() {
         <input type="owner_id" className="form-control" />
       </div>
 
-      <button type="submit" className="btn btn-primary">Aceptar</button> 
+      <button type="submit" className="btn" id={styles.boton}>Aceptar</button> 
     </form>
 
 
