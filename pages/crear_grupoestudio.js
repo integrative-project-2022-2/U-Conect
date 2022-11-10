@@ -4,7 +4,11 @@ import styles from '../styles/botton.module.css'
 import Chipa from '/components/Chipa'
 
 export default function Home() {
+  const mostrar=()=>{
+    alert("El grupo se ha creado exitosamente")
+  }
   return (
+    
     <form>
 
       <meta charset="utf-8" />
@@ -15,13 +19,13 @@ export default function Home() {
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">CREAR NUEVO GRUPO DE ESTUDIO</label>
+        <b for="exampleInputEmail1" class="form-label">CREAR NUEVO GRUPO DE ESTUDIO</b>
       </div>
 
 
       <div class="mb-3">
         <label for="Input-groupName" class="form-label">Nombre del grupo</label>
-        <input type="groupName" class="form-control" id="Input-groupName"/>
+        <input type="groupName" class="form-control" id="Input-groupName" />
       </div>
 
       <div className="mb-3">
@@ -49,7 +53,7 @@ export default function Home() {
       </div>
 
 
-      <div className="mb-3">
+      {/* <div className="mb-3">
         <label for="InputgroupId" className="form-label">ADICIONALES</label>
       </div>
 
@@ -68,9 +72,11 @@ export default function Home() {
       <div className="mb-3">
         <label for="Input-owner_id" className="form-label">Propietario del grupo </label>
         <input type="owner_id" className="form-control" />
-      </div>
+      </div> */}
 
-      <button type="submit" className="btn" id={styles.boton}>Aceptar</button> 
+      <button type="submit" className="btn" id={styles.boton} onClick={()=>mostrar()}>Aceptar</button>
+
+
     </form>
 
 
