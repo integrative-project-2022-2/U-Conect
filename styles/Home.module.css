@@ -1,6 +1,6 @@
 .container {
   padding: 0 2rem;
-  background-color:#222;
+  background-color:rgb(255, 255, 255);
 }
 
 .main {
@@ -44,6 +44,7 @@
   margin: 0;
   line-height: 1.15;
   font-size: 2rem;
+  color: black;
 }
 
 .title,
@@ -83,7 +84,8 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: rgb(48, 45, 45);
+  background-color: #673ab7;
+  border:2.5px solid black;
   font-size: 1.5rem;
 }
 
@@ -119,15 +121,15 @@
   position:absolute;
   left:50px;
   width:250px;
-  height:350px;
+  height:500px;
   border:2.5px solid black;
   border-radius:100px;
-  background:rgb(51, 47, 47);
+  background:#673ab7;
   align-content: vertical;
   padding: 10px;
   font-size: 5;
   margin: 1rem;
-  
+  color:white;
 }
 
 .diva2{
@@ -137,7 +139,7 @@
   height:max-content;
   border:2.5px solid black;
   
-  background:rgb(51, 47, 47);
+  background:#fafafa;
   align-content: vertical;
   padding: 10px;
   font-size: 5;
@@ -150,8 +152,8 @@
   width:250px;
   height:max-content;
   border:2.5px solid black;
-  
-  background:rgb(51, 47, 47);
+  background-color: white;
+  color:black;
   align-content: vertical;
   padding: 10px;
   font-size: 5;
@@ -167,17 +169,28 @@
 }
 
 .btplacer{
+  padding:0%;
   max-width: 300px;
-  height: 50px;
+  height:fit-content;
   font-size: 15pt;
+  border:2.5px solid black;
+  border-radius:50px;
+  color: black;
+  background-color: white;
+  margin-top: 20px;
 }
 
 .btplacer2{
   max-width: 300px;
   height:auto;
   font-size: 10pt;
+  color: white;
 }
 
+.btcss{
+  background-color: #673ab7;
+  color: white;
+}
 
 .calendar{
   border:solid 5px #777;
@@ -204,7 +217,8 @@
   width:max-content;
   height:max-content;
   border:2.5px solid black;
-
+  background-color: white;
+  color:black;
   align-content:stretch;
   padding: 10px;
   font-size: 5;
