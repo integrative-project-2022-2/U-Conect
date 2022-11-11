@@ -3,7 +3,7 @@ import { useState } from "react"
 import Head from "next/head"
 import HomeLayout from "../components/HomeLayout"
 
-import NewGroup from "/pages/Counseling_Activities/createNewGroups"
+import NewGroup from "/pages/Counseling_Activities/newGroup"
 import JoinAdvisory from "/pages/Counseling_Activities/JoinCounseling"
 import RetireAdvisory from "/pages/Counseling_Activities/retireadvisory"
 import UserStory5 from "/pages/Counseling_Activities/hu5"
