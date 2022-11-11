@@ -5,7 +5,7 @@ import styles from "/styles/RetireAdvisory.module.css";
 
 export default function RetireAdvisory(){
     return (
-        <div className={styles.body}>
+        <div className={styles.body_retire_advisory}>
             <HeaderRetireAdvisory />
             <BodyRetireAdvisory />
         </div>

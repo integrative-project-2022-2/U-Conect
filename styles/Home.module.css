@@ -3,7 +3,8 @@
 }
 
 .main {
-  min-height: 100vh;
+  min-width: 150vh;
+  min-height: 140vh;
   padding: 0.1rem 0;
   flex: 1;
   display: flex;
