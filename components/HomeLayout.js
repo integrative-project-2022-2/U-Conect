@@ -24,8 +24,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import Image from 'next/image'
+import notificationStyle from "../styles/notification.module.css"
 
-import styles from "../styles/Home.module.css"
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -134,12 +134,23 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-export default function PrimarySearchAppBar({children, button, image, notifications}) {
+export default function PrimarySearchAppBar({ children, button, image, notifications }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [notification, setNotification] = React.useState([]);
   const isMenuOpen = Boolean(anchorEl);
-  
+
+  let consult = async () => {
+    const response = await fetch("/api/notification_DB_Controller_Consulta")
+    const dt = await response.json();
+    console.log("funciona");
+    setNotification(dt)
+  }
+  React.useEffect(() => {
+    consult()
+  });
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -173,8 +184,15 @@ export default function PrimarySearchAppBar({children, button, image, notificati
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      {notifications.notification.map(e=>(
-        <MenuItem onClick={handleMenuClose}>{e+notifications.fecha}</MenuItem>
+      {notification.map(e => (
+        <div className={notificationStyle.notificationDeck} onClick={handleMenuClose}>
+          <div>
+            {e.message}
+          </div>
+          <div>
+            {e.ndate}
+          </div>
+        </div>
       ))}
     </Menu>
   );
@@ -183,7 +201,7 @@ export default function PrimarySearchAppBar({children, button, image, notificati
       <CssBaseline />
       <AppBar position="fixed" open={open} sx={{ bgcolor: "#673ab7" }}>
         <Toolbar>
-        <IconButton
+          <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
@@ -196,9 +214,9 @@ export default function PrimarySearchAppBar({children, button, image, notificati
             <MenuIcon />
           </IconButton>
           <Image src={image.path}
-                height={50}
-                width={50}
-                alt="Profile">
+            height={50}
+            width={50}
+            alt="Profile">
           </Image>
           <Typography
             variant="h6"
@@ -232,9 +250,9 @@ export default function PrimarySearchAppBar({children, button, image, notificati
             </IconButton>
           </Box>
           <Image src={image.profile}
-                height={50}
-                width={50}
-                alt="Profile">
+            height={50}
+            width={50}
+            alt="Profile">
           </Image>
         </Toolbar>
       </AppBar>
@@ -269,7 +287,7 @@ export default function PrimarySearchAppBar({children, button, image, notificati
                 >
                   {<InboxIcon />}
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0}} /> {/*Es el que pinta el texto en el boton*/}
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} /> {/*Es el que pinta el texto en el boton*/}
               </ListItemButton>
             </ListItem>
           ))}
