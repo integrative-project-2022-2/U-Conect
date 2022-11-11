@@ -1,7 +1,7 @@
 .header{
     display: flex;
     height: 70px;
-    background-color: #11A26A;
+    background-color: white;
 }
 
 .button_volver_section{
@@ -11,7 +11,7 @@
 }
 
 .volver_button{
-    background-color: transparent;
+    background-color: #673ab7;
     border: 2px solid black;
     font-size: 12px;
     font-weight: bold;

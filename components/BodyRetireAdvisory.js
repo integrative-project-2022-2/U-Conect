@@ -4,30 +4,33 @@ import ParticipantList from '/components/ParticipantList.js';
 import ParticipantItem from '/components/ParticipantItem.js';
 
 const participants = [
-    {text: 'Pepito 1'},
-    {text: 'Pepito 2'},
-    {text: 'Pepito 3'},
-    {text: 'Pepito 4'},
+    'pipocast',
+    'Santiago Cardenas'
 ];
 
 const info = [
     "Privada",
-    "Monitoria COE II",
-    "Monitoria",
-    "06 de septiembre del 2022",
-    "9:30 AM a 12:00 PM",
+    "Team de aprendizaje",
+    "Asesoria",
+    "11 de Noviembre del 2022",
+    "4:00 P.M - 6:00 P.M",
     "Pepito Perez Parra",
-    "Presencial (Salon 102A)",
-    "Monitoria de COE II en el que deseo que se revise la tesis que usare en un ensayo"
+    "presencial salon 407D",
+    ""
 ];
 
-let nombre_monitoria = 'Monitoria COE II'
+let user = 'pipocast'
+
+let nombre_monitoria = 'Team de aprendizaje'
 
 export default function BodyRetireAdvisory(){
     const [participantList, setParticipantsList] = React.useState(participants)
 
     const delete_participant = () => {
-        setParticipantsList(participants.pop())
+        console.log(participants)
+        const participantsFiltered = participants.filter((item) => item !== user)
+        console.log(participants)
+        setParticipantsList(participants = participantsFiltered)
         console.log(participants)
     };
 
@@ -64,7 +67,7 @@ export default function BodyRetireAdvisory(){
                 {<ParticipantList value={participants}>
 
                     {participants.map(participant =>
-                        <ParticipantItem key={participant.text} text={participant.text}/>)}
+                        <ParticipantItem key={participant} text={participant}/>)}
 
                     </ParticipantList>}
             </section>
