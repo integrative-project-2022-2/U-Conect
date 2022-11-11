@@ -9,6 +9,7 @@ import RetireAdvisory from "/pages/Counseling_Activities/retireadvisory"
 import UserStory5 from "/pages/Counseling_Activities/hu5"
 import UserStoryJesusGarces from "/pages/Counseling_Activities/Profile2"
 import Schedule from "/pages/Counseling_Activities/schedule"
+import Home21 from "/pages/Counseling_Activities/home21"
 
 export default function home() {
 
@@ -31,9 +32,10 @@ export default function home() {
       "Join to Group",
       "Join to Advisory",
       "Leave Advisory",
-      "Show Profile"
+      "Show Profile",
+      "Accept/Deny Profesor"
     ],
-    fun: [newG, sched, us5, join, leave, showP]
+    fun: [newG, sched, us5, join, leave, showP, acceptProfesor]
   })
 
   function newG() {
@@ -58,6 +60,10 @@ export default function home() {
 
   function sched(){
     setChildren(<Schedule />)
+  }
+
+  function acceptProfesor(){
+    setChildren(<Home21 />)
   }
 
   return (
