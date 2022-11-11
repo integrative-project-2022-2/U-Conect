@@ -23,7 +23,7 @@ export default function Home({calendar}) {
       
           <div className={styles.btplacer2}>
             <h1>
-              <label> Notificaciones </label>
+              <label> Solicitudes Asesoria </label>
               <div id="invitacion1" className={styles.btplacer}>
                 <ul>
                   <li>
@@ -66,7 +66,7 @@ export default function Home({calendar}) {
 
 export const getServerSideProps = async (context) => {
 return { props: { 
-  calendar:"https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FBogota&src=c2FudGlhZ29jYXJkZW5hc21vbnRlc0BnbWFpbC5jb20&src=ZXMuY28jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%230B8043" , 
+  calendar:"https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FBogota&showTitle=0&src=c2FudGlhZ29jYXJkZW5hc21vbnRlc0BnbWFpbC5jb20&src=NGNhOWI0MmJlMGIxYzE1Mjk0MzcxOWI0NTRiMzc4YmYwMTBlY2QyNTJiZmFmMmEyM2Y0MzA5NWU0YTg1MzM4NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZXMuY28jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTA0MDE3ODc0NDU2ODc4NzM2MTYyQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%23D81B60&color=%2333B679&color=%230B8043&color=%230047a8" , 
 }}
 }
 

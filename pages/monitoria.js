@@ -36,22 +36,19 @@ function Monitoria() {
                             <label> Nombre: Monitoria Calculo</label>
                         </li>
                         <li>
-                            <label> Tipo de asesoria: Monitoria</label>
+                            <label> Tipo: Monitoria</label>
                         </li>
                         <li>
-                            <label> Fecha: 24 de octubre del 2022</label>
+                            <label> Eventualidad: mensual</label>
                         </li>
                         <li>
-                            <label> Hora: 6:00 pm - 10:00 pm</label>
+                            <label> Fecha: 11 de noviembre del 2022</label>
                         </li>
                         <li>
-                            <label> Responsable: Felipe Perez</label>
+                            <label> Hora: 4:00 pm - 6:00 pm</label>
                         </li>
                         <li>
-                            <label> Medio: precencial salon 105D</label>
-                        </li>
-                        <li>
-                            <label> Descripcion: monitoria de calculo para repasar para el parcial final</label>
+                            <label> Medio: precencial salon 203C</label>
                         </li>
                     </ul>
                 </a> 
@@ -64,13 +61,7 @@ function Monitoria() {
                     <label> Participantes </label>
                         <ul className={styles.invitationInfoTitle}>
                             <li>
-                                <label> Felipe perez</label>
-                            </li>
-                            <li>
-                                <label> Juan Pablo</label>
-                            </li>
-                            <li>
-                                <label> Maria paula</label>
+                                <label> SantiagoCardenas</label>
                             </li>
                         </ul>
                     </a> 

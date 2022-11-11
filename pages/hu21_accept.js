@@ -23,7 +23,7 @@ export default function Home({calendar,monitoria}) {
       
           <div className={styles.btplacer2}>
             <h1>
-              <label> Notificaciones </label>
+              <label> Solicitudes Asesoria </label>
             </h1>
           </div> 
         </div>
@@ -46,7 +46,7 @@ export default function Home({calendar,monitoria}) {
 
 export const getServerSideProps = async (context) => {
 return { props: { 
-  calendar:"https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=UTC&src=am9rZXJmZXZlcnByb0BnbWFpbC5jb20&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZXMuY28jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%2333B679&color=%230B8043" , 
+  calendar:"https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=UTC&showTitle=0&src=am9rZXJmZXZlcnByb0BnbWFpbC5jb20&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZXMuY28jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%2333B679&color=%230B8043" , 
 }}
 }
 
