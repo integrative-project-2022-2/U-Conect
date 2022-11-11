@@ -3,6 +3,7 @@ import { useState } from "react"
 import Head from "next/head"
 import HomeLayout from "../components/HomeLayout"
 
+import NuevoGrupo from "/pages/Counseling_Activities/grupo-JFCG"
 import JoinAdvisory from "/pages/Counseling_Activities/JoinCounseling"
 import RetireAdvisory from "/pages/Counseling_Activities/retireadvisory"
 import UserStory5 from "/pages/Counseling_Activities/hu5"
@@ -18,13 +19,17 @@ export default function home() {
   const [children, setChildren] = React.useState(null)
   const [button] = useState({
     name: [
-      "New Group",
+      "Crear Nuevo Grupo",
       "Sebastian US",
       "Join to Advisory",
       "Leave Advisory"
     ],
-    fun: [join, us5, join, leave]
+    fun: [crearnuevogrupo, join, us5, join, leave]
   })
+
+  function crearnuevogrupo() {
+    setChildren(<NuevoGrupo />)
+  }
 
   function join() {
     setChildren(<JoinAdvisory />)
