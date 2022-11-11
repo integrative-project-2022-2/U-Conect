@@ -23,6 +23,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
+import Image from 'next/image'
 
 import styles from "../styles/Home.module.css"
 
@@ -96,7 +97,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('md')]: {
-      width: '20ch',
+      width: '800px',
     },
   },
 }));
@@ -133,7 +134,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-export default function PrimarySearchAppBar({children, button, notifications}) {
+export default function PrimarySearchAppBar({children, button, image, notifications}) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -180,7 +181,7 @@ export default function PrimarySearchAppBar({children, button, notifications}) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open} sx={{ bgcolor: "#7C7DCF" }}>
+      <AppBar position="fixed" open={open} sx={{ bgcolor: "#673ab7" }}>
         <Toolbar>
         <IconButton
             color="inherit"
@@ -194,6 +195,11 @@ export default function PrimarySearchAppBar({children, button, notifications}) {
           >
             <MenuIcon />
           </IconButton>
+          <Image src={image.path}
+                height={50}
+                width={50}
+                alt="Profile">
+          </Image>
           <Typography
             variant="h6"
             noWrap
@@ -225,6 +231,11 @@ export default function PrimarySearchAppBar({children, button, notifications}) {
               </Badge>
             </IconButton>
           </Box>
+          <Image src={image.profile}
+                height={50}
+                width={50}
+                alt="Profile">
+          </Image>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
@@ -264,7 +275,7 @@ export default function PrimarySearchAppBar({children, button, notifications}) {
           ))}
         </List>
       </Drawer>
-      <div className={styles.main}>{children}</div>
+      <Box >{children}</Box>
       {renderMenu}
     </Box>
   );

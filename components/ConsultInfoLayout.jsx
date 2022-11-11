@@ -3,7 +3,6 @@ import Head from "next/head"
 import Image from "next/image"
 import styles from "../styles/Layout.module.css"
 
-
 export default function ConsultInfoLayout({page, student, counseling, fun}) {
   return (
     <div>
@@ -35,6 +34,7 @@ export default function ConsultInfoLayout({page, student, counseling, fun}) {
         </header>
         <main className={styles.main}>
           <div className={styles.info}>
+            <div className={styles.block}>{counseling.name}</div>
             <h3>{counseling.name}</h3>
             <h5>Vista: {counseling.view}</h5>
             <h5>Fecha: {counseling.date}</h5>
@@ -43,11 +43,12 @@ export default function ConsultInfoLayout({page, student, counseling, fun}) {
             <h5>Materia: {counseling.subject}</h5>
             <h5>Tipo: {counseling.type}</h5>
             <h5>Medio: {counseling.means}</h5>
-            <h5>Descripcion: <p>{counseling.desc}</p></h5>
+            <h5>Descripcion: <text>{counseling.desc}</text></h5>
             <br/><br/><br/>
 
-            <button onClick={fun}>INGRESAR A ASESORIA</button>
+            <button onClick={fun} className={styles.button}>INGRESAR A ASESORIA</button>
           </div> 
+          <div></div>
           <div className={styles.table}>
             <table className="table table-light">
               <thead className="thead-light">
@@ -63,9 +64,6 @@ export default function ConsultInfoLayout({page, student, counseling, fun}) {
             </table>
           </div> 
         </main>
-        <footer className={styles.header}>
-          <h1></h1>
-        </footer>
     </div>
   )
 }

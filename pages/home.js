@@ -18,6 +18,11 @@ export default function home() {
     fecha: "9/10/2022"
   };
 
+  const path = {
+    profile: "/image/profilePicture.jpeg",
+    path: "/image/Logo.png"
+  } 
+
   const [children, setChildren] = React.useState(null)
   const [button] = useState({
     name: [
@@ -36,7 +41,7 @@ export default function home() {
   }
 
   function join() {
-    setChildren(<JoinAdvisory />)
+    setChildren(<JoinAdvisory id={'A1'}/>)
   }
 
   function leave() {
@@ -61,7 +66,7 @@ export default function home() {
         <title>Pagina Principal</title>
       </Head>
       <main>
-        <HomeLayout notifications={notifications1} button={button}>
+        <HomeLayout notifications={notifications1} button={button} image={path}>
           {children}
         </HomeLayout>
       </main>

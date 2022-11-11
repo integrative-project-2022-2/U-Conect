@@ -15,28 +15,68 @@ import { deepPurple, pink } from '@mui/material/colors';
 
 
 
+
 const theme = createTheme({palette: {
   primary: deepPurple,
 },
 });
 
-export default function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+let state = {
+  data : {
+    username: "",
+    password: ""
+  },
+}
+
+
+
+
+function handleChange(e){
+
+  let value = e.target.value;
+  switch (e.target.name){
+    case "username": 
+    state.data.username = value;
+    break;
+    case "password":
+    state.data.password = value
+    break;   
+  }
+}
+
+async function handleSubmit(e){  
 
   
-const [name, setName] = React.useState(' ');
-const [password, setPassword] = React.useState(' ');
+
+  e.preventDefault();
+    const response = await fetch("http://localhost:3000/api/loginUser",{
+      
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      
+      body: JSON.stringify(state.data)
+           
+    })
+    const data = await response.json();
+    console.log(data)
+  
+    if(data === 0){
+      alert("Password or Username is not correct")
+      state.data.username = "";
+      state.data.password = ""
+    } else {
+      location.replace('/home')
+    }
+    
+  }
+
+export default function SignIn() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" id='container'>
         <CssBaseline />
         <Box
           sx={{
@@ -52,13 +92,7 @@ const [password, setPassword] = React.useState(' ');
           </Typography>
           
           <Box>
-            <form
-                onSubmit={ev=>{
-                  ev.preventDefault();
-
-                  login(name, password);
-                }}            
-            
+            <form onSubmit={handleSubmit}         
             >
             
             <TextField
@@ -66,12 +100,12 @@ const [password, setPassword] = React.useState(' ');
               margin="normal"
               required
               fullWidth
-              name="email"
-              label="Email"
-              type="email"
-              autoComplete="email"
+              name="username"
+              label="Username"
+              type="username"
+              autoComplete="username"
               autoFocus
-              onChange={ev=>setName(ev.target.value)}
+              onChange={handleChange}
 
             />
             <TextField
@@ -83,7 +117,8 @@ const [password, setPassword] = React.useState(' ');
               type="password"
               id="password"
               autoComplete="current-password"
-              onChange={ev=>setPassword(ev.target.value)}
+              onChange={handleChange}
+            
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -122,13 +157,5 @@ const [password, setPassword] = React.useState(' ');
     </ThemeProvider>
   );
 
-  function login(name, password){
-    if(name === "juan@hotmail.com" && password === "password")
-      
-      location.replace('home')
-
-    else alert('Email o contraseña incorrectos, por favor verifica los datos ingresados')
-      
-  };
-
+  
 }
