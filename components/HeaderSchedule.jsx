@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function HeaderSchedule() {
+function Header() {
   return (
     <>
       <meta charSet="UTF-8" />
@@ -21,3 +21,5 @@ export default function HeaderSchedule() {
     </>
   );
 }
+
+export default Header;
