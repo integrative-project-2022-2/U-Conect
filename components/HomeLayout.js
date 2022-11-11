@@ -24,6 +24,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import styles from "../styles/Home.module.css"
+import notificationStyle from "../styles/notification.module.css"
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -134,19 +135,32 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 export default function PrimarySearchAppBar({children, button, notifications}) {
 
-  const {data, setData} = useState(false);
-  useEffect(async ()=>{
-    const response = await fetch("/api/notification_DB_Controller_Consulta")
-    const dt = await response.json();
-    setData(dt);
-    console.log(dt);
-  })
-  
+  //  const {data, setData} = useState(false);
+  //  useEffect(async ()=>{
+  //    const response = await fetch("/api/notification_DB_Controller_Consulta")
+  //    const dt = await response.json();
+  //    setData(dt);
+  //    console.log(dt);
+  // });
+
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
-  const [notification, setNotification] = useState(null);
+  const [notification, setNotification] = useState([]);
   const isMenuOpen = Boolean(anchorEl);
+
+ 
+let consult = async ()=>{
+  const response = await fetch("/api/notification_DB_Controller_Consulta")
+    const dt = await response.json();
+    console.log("funciona");
+    setNotification(dt)
+}
+  useEffect(() => {
+      consult()
+  });
+  
+  
   
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -181,8 +195,15 @@ export default function PrimarySearchAppBar({children, button, notifications}) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      {notifications.notification.map(e=>(
-        <div onClick={handleMenuClose}><div>{e}</div><div>{notifications.fecha}</div></div>
+      {notification.map(e=>(
+        <div className = {notificationStyle.notificationDeck} onClick={handleMenuClose}>
+          <div>
+            {e.message}
+            </div>
+            <div>
+              {e.ndate}
+              </div>
+              </div>
       ))}
     </Menu>
   );
