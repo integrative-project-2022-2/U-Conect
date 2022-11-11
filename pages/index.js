@@ -2,12 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
-const user_signed_in = {
-  username: 'SantiagoCardenas',
-  role: 'PROFESOR'
-}
-
-export default function Home({calendar,monitoria}) {
+export default function Home({calendar}) {
   return (
    
     <div className={styles.container}>
@@ -19,20 +14,20 @@ export default function Home({calendar,monitoria}) {
        
 
       <div className={styles.gridSearch}>
-              <a  className={styles.block}> 
-                <section> <img src="icesi.JPG" width="200" /> </section>                            
-              </a>      
+                <a  className={styles.block}> 
+                    <section> <img src="icesi.JPG" width="200" /> </section>                            
+                </a>      
 
-              <a className={styles.block}>        
-                <searchbar>
-                  <input type="text" id="search" placeholder="Search People" autoComplete="off"  size="100"/> 
-                </searchbar>
-              </a>
+                <a className={styles.block}>        
+                    <searchbar>
+                    <input type="text" id="search" placeholder="Search People" autoComplete="off"  size="100"/> 
+                    </searchbar>
+                </a>
 
-              <a  className={styles.block}>
-              <profile> <img src="perfil.png" width="75" /> </profile>
-              </a>
-      </div>     
+                <a  className={styles.block}>
+                <profile> <img src="perfil.png" width="75" /> </profile>
+                </a>
+        </div>
 
   
 
@@ -58,7 +53,7 @@ export default function Home({calendar,monitoria}) {
                         <input type="hidden" name ="usernameTemp" value="SantiagoCardenas" autoComplete="off"  size="1"/>         
                         <input type="hidden" name ="groupIdTemp" value="1" autoComplete="off"  size="1"/>         
                         
-                        <input className={styles.btcss} id="bt1" type="submit" value="Aceptar" />
+                        <input className={styles.btcss} id="bt1" type="submit" value="Aceptar"/>
                       </form>
                       
                     <form action="http://localhost:3000/api/DB_ControllerHU21" method="POST">
@@ -93,5 +88,6 @@ return { props: {
   calendar:"https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FBogota&src=c2FudGlhZ29jYXJkZW5hc21vbnRlc0BnbWFpbC5jb20&src=ZXMuY28jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%230B8043" , 
 }}
 }
+
 
 
