@@ -10,26 +10,7 @@ export default function Home({calendar}) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </Head>
 
-      <main className={styles.main}>
-       
-
-      <div className={styles.gridSearch}>
-                <a  className={styles.block}> 
-                    <section> <img src="icesi.JPG" width="200" /> </section>                            
-                </a>      
-
-                <a className={styles.block}>        
-                    <searchbar>
-                    <input type="text" id="search" placeholder="Search People" autoComplete="off"  size="100"/> 
-                    </searchbar>
-                </a>
-
-                <a  className={styles.block}>
-                <profile> <img src="perfil.png" width="75" /> </profile>
-                </a>
-        </div>
-
-  
+      <main className={styles.main}>  
 
       <div id="container">
 
