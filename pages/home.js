@@ -4,6 +4,7 @@ import Head from "next/head"
 import HomeLayout from "../components/HomeLayout"
 
 import NewGroup from "/pages/Counseling_Activities/newGroup"
+import AsesoriaG from "/pages/Counseling_Activities/asesoria"
 import JoinAdvisory from "/pages/Counseling_Activities/JoinCounseling"
 import RetireAdvisory from "/pages/Counseling_Activities/retireadvisory"
 import UserStory5 from "/pages/Counseling_Activities/hu5"
@@ -34,9 +35,10 @@ export default function home() {
       "Join to Advisory",
       "Leave Advisory",
       "Show Profile",
-      "Accept/Deny Profesor"
+      "Accept/Deny Profesor",
+      "Create Advisory"
     ],
-    fun: [newG, sched, us5, join, leave, showP, acceptProfesor]
+    fun: [newG, sched, us5, join, leave, showP, acceptProfesor, asesori]
   })
 
   function newG() {
@@ -66,6 +68,13 @@ export default function home() {
   function acceptProfesor(){
     setChildren(<Home21 />)
   }
+
+  function asesori(){
+    setChildren(<AsesoriaG />)
+  }
+  
+  
+
 
   return (
     <div>
