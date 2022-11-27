@@ -9,7 +9,7 @@ export default function Home() {
   }
   return (
     
-    <form>
+    <form action="http://localhost:3000/api/JFCG-DB_Groups" method="POST">
 
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,33 +19,42 @@ export default function Home() {
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 
       <div class="mb-3">
-        <b for="exampleInputEmail1" class="form-label">CREAR NUEVO GRUPO DE ESTUDIO</b>
+        <b for="title" class="form-label">CREAR NUEVO GRUPO DE ESTUDIO</b>
+      </div>
+
+      <div class="mb-3">
+        <label for="Input-ownerId" class="form-label">Propietario</label>
+        <input type="text" class="form-control" name="ownerId"/>
       </div>
 
 
       <div class="mb-3">
         <label for="Input-groupName" class="form-label">Nombre del grupo</label>
-        <input type="groupName" class="form-control" id="Input-groupName" />
+        <input type="text" class="form-control"  name="groupName"/>
       </div>
 
       <div className="mb-3">
-        <label for="Inputmanager" className="form-label">Selecciona una materia </label>
-        <select className="form-select" aria-label="Default select example">
+        <label for="Input-subject" className="form-label">Selecciona una materia </label>
+        <select className="form-select" aria-label="Default select example" name="subject">
           <option selected>Materia</option>
-          <option value="1">Algebra y funciones</option>
-          <option value="2">COE1</option>
-          <option value="3">Organizaciones</option>
+          <option value="10332">Proyecto integrador 1</option>
+          <option value="10255">Inferencia estadística</option>
         </select>
       </div>
 
-      <div className="mb-3">
-        <label for="exampleInputPassword1" className="form-label">Integrantes </label>
-        <Chipa></Chipa>
+      <div class="mb-3">
+        <label for="Input-quantityOfStudents " class="form-label">Cantidad de integrantes</label>
+        <input type="number" class="form-control"  name="quantityOfStudents"/>
       </div>
 
+      {/* <div className="mb-3">
+        <label for="exampleInputPassword1" className="form-label">Integrantes </label>
+        <Chipa></Chipa>
+      </div> */}
+
       <div className="mb-3">
-        <label for="Inputmanager" className="form-label">Selecciona el estado </label>
-        <select className="form-select" aria-label="Default select example">
+        <label for="Input-select" className="form-label">Selecciona el estado </label>
+        <select className="form-select" aria-label="Default select example" name="state">
           <option selected>Estado</option>
           <option value="PUBLICO">PUBLICO</option>
           <option value="PRIVADO">PRIVADO</option>
