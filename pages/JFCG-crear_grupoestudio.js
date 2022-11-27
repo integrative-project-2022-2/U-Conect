@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/botton.module.css'
-import Chipa from '/components/Chipa'
+import styles from '../styles/JFCG-botton.module.css'
+import Chipa from '/components/JFCG-Chipa'
 
 export default function Home() {
   const mostrar=()=>{
