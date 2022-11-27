@@ -6,6 +6,7 @@ import HomeLayout from "../components/HomeLayout"
 import JoinAdvisory from "/pages/Counseling_Activities/JoinCounseling"
 import RetireAdvisory from "/pages/Counseling_Activities/retireadvisory"
 import UserStory5 from "/pages/Counseling_Activities/hu5"
+import Profile from "/pages/Counseling_Activities/profile"
 
 export default function home() {
 
@@ -21,9 +22,10 @@ export default function home() {
       "New Group",
       "Sebastian US",
       "Join to Advisory",
-      "Leave Advisory"
+      "Leave Advisory",
+      "Profile"
     ],
-    fun: [join, us5, join, leave]
+    fun: [join, us5, join, leave, openProfile]
   })
 
   function join() {
@@ -36,6 +38,10 @@ export default function home() {
 
   function us5() {
     setChildren(<UserStory5 />)
+  }
+
+  function openProfile() {
+    setChildren(<Profile />)
   }
 
   return (
