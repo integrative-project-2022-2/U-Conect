@@ -48,14 +48,14 @@ export default function Home() {
       </div>
 
       <div class="mb-3">
-        <label for="Input-quantityOfStudents " class="form-label">Cantidad de integrantes</label>
+        <label for="Input-quantityOfStudents" class="form-label">Cantidad de integrantes</label>
         <input type="number" class="form-control"  name="quantityOfStudents"/>
       </div>
 
-      {/* <div className="mb-3">
-        <label for="exampleInputPassword1" className="form-label">Integrantes </label>
+      <div className="mb-3">
+        <label for="Input-quantityOfStudents" className="form-label">Integrantes </label>
         <Chipa></Chipa>
-      </div> */}
+      </div>
 
       <div className="mb-3">
         <label for="Input-select" className="form-label">Selecciona el estado </label>

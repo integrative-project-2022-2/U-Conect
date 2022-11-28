@@ -7,6 +7,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
+import { useState, useEffect } from 'react';
+
+import { setData } from '../models/ChipaData';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -19,12 +22,6 @@ const MenuProps = {
   },
 };
 
-const names = [
-  'Valentina',
-  'Juan Camilo',
-  'Jesus David',
-];
-
 function getStyles(name, personName, theme) {
   return {
     fontWeight:
@@ -34,7 +31,27 @@ function getStyles(name, personName, theme) {
   };
 }
 
+
 export default function MultipleSelectChip() {
+  let participant = []
+  const [names, setNames] = React.useState([{name: 'Nuevo'}]);
+  useEffect(() => {
+    construct()
+  }, [])
+
+  const construct = async () => {
+    const URL = "http://localhost:3000/api/JFCG-DB_Consultas";
+    const res = await fetch(URL);
+    const data = await res.json();
+    console.log(data.res)
+    const array = ['']
+    data.res.map(e => (
+      array.push(e)
+    ))
+
+    setNames(array)
+  }
+
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 
@@ -43,9 +60,11 @@ export default function MultipleSelectChip() {
       target: { value },
     } = event;
     setPersonName(
-      // On autofill we get a stringified value.
       typeof value === 'string' ? value.split(',') : value,
-    );
+    )
+    setData(
+      typeof value === 'string' ? value.split(',') : value,
+    )
   };
 
   return (
@@ -70,11 +89,11 @@ export default function MultipleSelectChip() {
         >
           {names.map((name) => (
             <MenuItem
-              key={name}
-              value={name}
-              style={getStyles(name, personName, theme)}
+              key={name.name}
+              value={name.name}
+              style={getStyles(name.name, personName, theme)}
             >
-              {name}
+              {name.name}
             </MenuItem>
           ))}
         </Select>
