@@ -118,6 +118,7 @@
 
   .profile_name {
     color: black;
+    font-family: 'Times New Roman', Times, serif;
   }
 
   .profile_avatar {
@@ -129,6 +130,7 @@
   .menu_items {
     display:flex;
     cursor: pointer;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
 
   .pr_it{
@@ -147,6 +149,15 @@
   }
 
   .titleee{
-    padding: 30px;
+    padding: 5px;
     transition: 0.2s;
+    font-family: 'Times New Roman', Times, serif;
   }
+
+.divMaterias{
+  float: left;
+  border:2px solid rgba(98, 0, 255, 0.801);
+  font-family: 'Times New Roman', Times, serif;
+  margin:3px;
+  padding:3px;
+}

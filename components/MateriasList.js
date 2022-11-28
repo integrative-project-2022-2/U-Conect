@@ -44,28 +44,17 @@ export default function MeteriasList(){
                     <label className={styles.profile_name}>{name}</label>
                     </div>
                     <div className={styles.menu_item}>
-                        <a className={styles.pr_it}>Main</a>
+                        <a className={styles.pr_it} >Inicio</a>
                         <a className={styles.pr_it}>Grupos</a>
-                        <a className={styles.pr_it}>About</a>
+                        <a className={styles.pr_it}>Amigos</a>
+                        <a className={styles.pr_it}></a>
+                        <a className={styles.pr_it}></a>
                     </div>
                     
                     </div>
                 </div>
          </div>
          
-            <a className={styles.titleee}>Materias</a>
-            
-            <p></p>
-
-            <div>
-                {todos.map((item) => {
-                    return(
-                        <div key={item.id} >{item.title}</div>
-                    )
-                
-                    })}
-            </div>
-
             <p></p>
             
             <form className={styles.todoCreateForm} onSubmit={handleSubmit}>
@@ -73,11 +62,41 @@ export default function MeteriasList(){
                 <input type="submit" value="agregar" className={styles.buttonCreate} onClick={handleSubmit}/>
                 <p></p>
                 <select value={title} id="select"  onChange={handlerChanger}>
-                    <option>Coe</option>
-                    <option>Math</option>
+                    <option>CED I</option>
+                    <option>CED II</option>
+                    <option>Coe I</option>
+                    <option>Coe II</option>
+                    <option>Proyecto Integrador</option>
+                    <option>Álgebra y funciones</option>
+                    <option>Inferencia estadistica</option>
+                    <option>Fundamentos de mercadeo</option>
+                    <option>Álgebra lineal</option>
+                    <option>Calculo de varias</option>
+                    <option>Apo I</option>
+                    <option>Apo II</option>
+                    <option>Electricidad y magnetismo</option>
+                    <option>ingenieria de software</option>
+                    <option>Organizaciones</option>
+                    <option>Fisica y laboratorio</option>
+                    <option>Modelado</option>
+                    <option>Calculo de una variavle</option>
+                    <option>Teoria de probabilidades</option>
+                    <option>Ingles</option>
+                    <option>Fundamentos de derecho constitucional</option>
+                    <option>Lógica y argumentación</option>
                 </select>
             </form>
-           
+            <p></p>
+            <h2 className={styles.titleee}>Materias</h2>
+            <p></p>
+            {todos.map((item) => {
+                return(
+                    <div className={styles.divMaterias} key={item.id}>{item.title}</div>
+                        
+                )
+                
+            })}
+        
         </div>
     )
 }

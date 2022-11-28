@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { deepPurple, pink } from '@mui/material/colors';
-import Profile from "/pages/Counseling_Activities/profile"
+
 
 const theme = createTheme({palette: {
   primary: deepPurple,
@@ -101,6 +101,7 @@ export default function SignIn() {
               name="username"
               label="Username"
               type="username"
+              id="username"
               autoComplete="username"
               autoFocus
               onChange={handleChange}
