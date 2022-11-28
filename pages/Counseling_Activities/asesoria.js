@@ -23,12 +23,12 @@ export default function Home() {
 
 
         <div class="mb-3">
-          <b for="exampleInputEmail1" class="form-label">CREAR NUEVO GRUPO DE ESTUDIO</b>
+          <b for="exampleInputEmail1" class="form-label">CREAR ASESORIA</b>
         </div>
 
 
         <div class="mb-3">
-          <label for="Input-groupName" class="form-label">Nombre del grupo</label>
+          <label for="Input-groupName" class="form-label">Nombre de asesoria</label>
           <input type="groupName" class="form-control" id="Input-groupName" />
         </div>
 
