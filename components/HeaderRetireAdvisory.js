@@ -2,8 +2,8 @@ import styles from '/styles/HeaderRetireAdvisory.module.css';
 import profilePhoto from '/public/image/pp.png'
 import Image from 'next/image'
 
-let username = "Nombre de usuario";
-let user_code = "Codigo del usuario";
+let username = "pipocast";
+let user_code = "A00382775";
 
 export default function HeaderRetireAdvisory(){
     return(
