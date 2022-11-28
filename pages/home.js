@@ -70,6 +70,14 @@ export default function home() {
     setChildren(<Schedule />)
   }
 
+  function acceptProfesor(){
+    setChildren(<Home21 />)
+  }
+
+  function asesori(){
+    setChildren(<AsesoriaG />)
+  }
+
   return (
     <div>
       <Head>
