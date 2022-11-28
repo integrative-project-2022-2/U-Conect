@@ -3,35 +3,82 @@ import styles from '/styles/BodyRetireAdvisory.module.css';
 import ParticipantList from '/components/ParticipantList.js';
 import ParticipantItem from '/components/ParticipantItem.js';
 
-const participants = [
-    'pipocast',
-    'Santiago Cardenas'
+let participants = [
+    {idparticipant: 'pipocast'},
+    {idparticipant: 'Santiago Cardenas'}
 ];
 
-const info = [
-    "Privada",
-    "Team de aprendizaje",
-    "Asesoria",
-    "11 de Noviembre del 2022",
-    "4:00 P.M - 6:00 P.M",
-    "Pepito Perez Parra",
-    "presencial salon 407D",
-    ""
+let info = [
+    {activity_name: "Team de aprendizaje",
+    date_activity: "11 de Noviembre del 2022",
+    description: "",
+    end_hour: "4:00 P.M - 6:00 P.M",
+    manager: "Pepito Perez Parra",
+    means: "presencial salon 407D",
+    view_activity: "Privada",
+    type: "Asesoria",
+    date_activity: "11 de Noviembre del 2022"}
 ];
 
-let user = 'pipocast'
+export default function BodyRetireAdvisory({ idA, user }) {
 
-let nombre_monitoria = 'Team de aprendizaje'
+    let userName = user.name
 
-export default function BodyRetireAdvisory(){
+    let nombre_monitoria = info[0].activity_name
+    
+    constructInfo()
+    constructParticipants()
+    
+    async function constructInfo() {
+        const URL = "http://localhost:3000/api/leave_advisory_api";
+        const data = {
+          id: idA
+        }
+        const myInit = {
+          method: 'POST',
+          body: JSON.stringify(data), // data can be `string` or {object}!
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        };
+    
+        const res = await fetch(URL, myInit);
+        const infoAct = await res.json();
+    
+        setInfoList(info = infoAct)
+    }
+
+    async function constructParticipants() {
+        console.log("entro2")
+        const URL = "http://localhost:3000/api/leave_advisory_partipants";
+        const data = {
+          id: idA
+        }
+        const myInit = {
+          method: 'POST',
+          body: JSON.stringify(data), // data can be `string` or {object}!
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        };
+    
+        console.log("antes de hacer el query")
+        const res = await fetch(URL, myInit);
+        const infoAct = await res.json();
+        console.log(infoAct)
+        
+        console.log("antes de cambiar la lista")
+        setParticipantsList(participants = infoAct)
+        console.log("participants after query")
+        console.log(participants)
+    }
+
     const [participantList, setParticipantsList] = React.useState(participants)
+    const [infoList, setInfoList] = React.useState(info)
 
     const delete_participant = () => {
-        console.log(participants)
-        const participantsFiltered = participants.filter((item) => item !== user)
-        console.log(participants)
+        const participantsFiltered = participants.filter((item) => item.idparticipant !== userName)
         setParticipantsList(participants = participantsFiltered)
-        console.log(participants)
     };
 
     return(
@@ -44,14 +91,14 @@ export default function BodyRetireAdvisory(){
                         </p>
                     </section>
                     <section className={styles.info_monitoria_section}>
-                        <p> <b>Vista:</b> {info[0]}  </p>
-                        <p> <b>Nombre:</b> {nombre_monitoria} </p>
-                        <p> <b>Tipo de asesoría:</b> {info[2]} </p>
-                        <p> <b>Fecha:</b> {info[3]} </p>
-                        <p> <b>Hora:</b> {info[4]} </p>
-                        <p> <b>Responsable:</b> {info[5]} </p>
-                        <p> <b>Medio:</b> {info[6]} </p>
-                        <p> <b>Descripción:</b> {info[7]} </p>
+                        <p> <b>Vista:</b> {info[0].view_activity}  </p>
+                        <p> <b>Nombre:</b> {info[0].activity_name} </p>
+                        <p> <b>Tipo de asesoría:</b> {info[0].type} </p>
+                        <p> <b>Fecha:</b> {info[0].date_activity} </p>
+                        <p> <b>Hora:</b> {info[0].end_hour} </p>
+                        <p> <b>Responsable:</b> {info[0].manager} </p>
+                        <p> <b>Medio:</b> {info[0].means} </p>
+                        <p> <b>Descripción:</b> {info[0].description} </p>
                     </section>
                 </section>
                 <section onClick={delete_participant} className={styles.button_salir_section}>
@@ -67,10 +114,19 @@ export default function BodyRetireAdvisory(){
                 {<ParticipantList value={participants}>
 
                     {participants.map(participant =>
-                        <ParticipantItem key={participant} text={participant}/>)}
+                        <ParticipantItem key={participant.idparticipant} text={participant.idparticipant}/>)}
 
                     </ParticipantList>}
             </section>
         </section>
     );
 }
+
+BodyRetireAdvisory.defaultProps = {
+    idA: 'A1',
+    user: {
+      name: 'pipocast',
+      rol: 'Estudiante',
+      img: "/image/profile_default.png"
+    }
+  }
