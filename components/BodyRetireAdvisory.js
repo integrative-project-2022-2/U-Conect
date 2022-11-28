@@ -5,19 +5,19 @@ import ParticipantItem from '/components/ParticipantItem.js';
 
 let participants = [
     {idparticipant: 'pipocast'},
-    {idparticipant: 'Santiago Cardenas'}
+    {idparticipant: 'cris07'},
+    {idparticipant: 'juanK'}
 ];
 
 let info = [
-    {activity_name: "Team de aprendizaje",
-    date_activity: "11 de Noviembre del 2022",
+    {activity_name: "Entrega Producto Proyecto Integrador",
+    date_activity: "2022-10-10",
     description: "",
-    end_hour: "4:00 P.M - 6:00 P.M",
-    manager: "Pepito Perez Parra",
-    means: "presencial salon 407D",
-    view_activity: "Privada",
-    type: "Asesoria",
-    date_activity: "11 de Noviembre del 2022"}
+    end_hour: "18:00:00 - 21:00:00",
+    manager: "Emily",
+    means: "PRESENCIAL",
+    view_activity: "PUBLICO",
+    type: "ASESORIA"}
 ];
 
 export default function BodyRetireAdvisory({ idA, user }) {

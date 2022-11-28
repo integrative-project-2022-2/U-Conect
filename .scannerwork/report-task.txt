@@ -1,0 +1,6 @@
+projectKey=U-Connect-final-version
+serverUrl=http://localhost:9000
+serverVersion=9.7.1.62043
+dashboardUrl=http://localhost:9000/dashboard?id=U-Connect-final-version
+ceTaskId=AYS-6PTCT2sZY9fghC3Y
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYS-6PTCT2sZY9fghC3Y
