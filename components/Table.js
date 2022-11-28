@@ -5,6 +5,30 @@ import  TableHead  from "./TableHead.js";
 import  TableItem  from "./TableItem";
 import  TableFooter  from "./TableFooter";
 
+import styles from "../styles/Table.module.css";
+import React from "react";
+import { TableRow } from "./TableRow.js";
+import { TableHead } from "./TableHead.js";
+import { TableItem } from "./TableItem";
+import { TableFooter } from "./TableFooter";
+
+// const get_group_Data = async () => {
+//   const URL = '"http://localhost:3000/api/dbController.js"';
+//   const data = {
+//     id: "1",
+//   };
+//   const myInit = {
+//     method: "GET",
+//     body: JSON.stringify(data),
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   };
+
+//   const res = await fetch(URL, myInit);
+//   const resJson = await res.json();
+// };
+
 const heads = [
   { text: "Grupo" },
   { text: "Materias" },
@@ -29,6 +53,33 @@ const rows = [
 
 const rowsB = [{ text: "Detalles" }, { text: "Unirse" }];
 
+// const rows2 = [
+//   { text: "RepasitoMate" },
+//   { text: "Matematicas" },
+//   { text: "24/30" },
+// ];
+
+// const rows3 = [
+//   { text: "LaTerceraEsLaVencida" },
+//   { text: "Contabilidad" },
+//   { text: "29/30" },
+// ];
+
+// const rows4 = [{ text: "AL" }, { text: "Algebra Lineal" }, { text: "13/30" }];
+
+// const rows5 = [
+//   { text: "F en el chat" },
+//   { text: "Electromagnetismo" },
+//   { text: "21/30" },
+// ];
+
+// const rows6 = [
+//   { text: "Repasito" },
+//   { text: "Estructuras Discretas" },
+//   { text: "19/30" },
+// ];
+
+// const participantDB = get_group_Data();
 
 function Table() {
   // const [rowsList, setRows] = React.useState(rows);
@@ -142,3 +193,4 @@ function Table() {
 }
 
 export { Table };
+
