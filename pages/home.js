@@ -15,8 +15,13 @@ import Home21 from "/pages/Counseling_Activities/home21"
 
 export default function home() {
 
-  const notifications1 = {
+  const user = {
+    name: 'JuanK',
+    rol: 'Profesor',
+    img: "/image/profile_default.png"
+  }
 
+  const notifications1 = {
     notification: ["notificacion1", "notificacion2", "notificacion3"],
     fecha: "9/10/2022"
   };
@@ -46,7 +51,7 @@ export default function home() {
   }
 
   function join() {
-    setChildren(<JoinAdvisory id={'A1'}/>)
+    setChildren(<JoinAdvisory />)
   }
 
   function leave() {
@@ -64,17 +69,6 @@ export default function home() {
   function sched(){
     setChildren(<Schedule />)
   }
-
-  function acceptProfesor(){
-    setChildren(<Home21 />)
-  }
-
-  function asesori(){
-    setChildren(<AsesoriaG />)
-  }
-  
-  
-
 
   return (
     <div>

@@ -144,7 +144,6 @@ export default function PrimarySearchAppBar({ children, button, image, notificat
   let consult = async () => {
     const response = await fetch("/api/notification_DB_Controller_Consulta")
     const dt = await response.json();
-    console.log("funciona");
     setNotification(dt)
   }
   React.useEffect(() => {
