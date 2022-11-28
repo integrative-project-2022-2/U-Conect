@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '/styles/botoncito.module.css'
-import Chipa from '/components/Chipa-JFCG'
+import styles from '/styles/JFCG-botton.module.css'
+import Chipa from '/components/JPA-Chipa.js'
 
 export default function Home() {
   const mostrar = () => {
@@ -17,7 +17,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet" />
-        <title>Crear grupo</title>
+        <title>Crear ASESORIA</title>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 
 

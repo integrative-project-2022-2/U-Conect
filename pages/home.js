@@ -3,7 +3,7 @@ import { useState } from "react"
 import Head from "next/head"
 import HomeLayout from "../components/HomeLayout"
 
-import NewGroup from "/pages/Counseling_Activities/newGroup"
+import NewGroup from "/pages/Counseling_Activities/JFCG-creargrupos"
 import AsesoriaG from "/pages/Counseling_Activities/asesoria"
 import JoinAdvisory from "/pages/Counseling_Activities/JoinCounseling"
 import RetireAdvisory from "/pages/Counseling_Activities/retireadvisory"
