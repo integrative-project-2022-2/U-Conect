@@ -3,12 +3,15 @@ import { useState } from "react"
 import Head from "next/head"
 import HomeLayout from "../components/HomeLayout"
 
-import NewGroup from "/pages/Counseling_Activities/createNewGroups"
+import NewGroup from "/pages/Counseling_Activities/newGroup"
+import AsesoriaG from "/pages/Counseling_Activities/asesoria"
 import JoinAdvisory from "/pages/Counseling_Activities/JoinCounseling"
 import RetireAdvisory from "/pages/Counseling_Activities/retireadvisory"
 import UserStory5 from "/pages/Counseling_Activities/hu5"
 import UserStoryJesusGarces from "/pages/Counseling_Activities/Profile2"
 import Schedule from "/pages/Counseling_Activities/schedule"
+import Home21 from "/pages/Counseling_Activities/home21"
+
 
 export default function home() {
 
@@ -18,6 +21,11 @@ export default function home() {
     fecha: "9/10/2022"
   };
 
+  const path = {
+    profile: "/image/profilePicture.jpeg",
+    path: "/image/Logo.png"
+  } 
+
   const [children, setChildren] = React.useState(null)
   const [button] = useState({
     name: [
@@ -26,9 +34,11 @@ export default function home() {
       "Join to Group",
       "Join to Advisory",
       "Leave Advisory",
-      "Show Profile"
+      "Show Profile",
+      "Accept/Deny Profesor",
+      "Create Advisory"
     ],
-    fun: [newG, sched, us5, join, leave, showP]
+    fun: [newG, sched, us5, join, leave, showP, acceptProfesor, asesori]
   })
 
   function newG() {
@@ -36,7 +46,7 @@ export default function home() {
   }
 
   function join() {
-    setChildren(<JoinAdvisory />)
+    setChildren(<JoinAdvisory id={'A1'}/>)
   }
 
   function leave() {
@@ -55,13 +65,24 @@ export default function home() {
     setChildren(<Schedule />)
   }
 
+  function acceptProfesor(){
+    setChildren(<Home21 />)
+  }
+
+  function asesori(){
+    setChildren(<AsesoriaG />)
+  }
+  
+  
+
+
   return (
     <div>
       <Head>
         <title>Pagina Principal</title>
       </Head>
       <main>
-        <HomeLayout notifications={notifications1} button={button}>
+        <HomeLayout notifications={notifications1} button={button} image={path}>
           {children}
         </HomeLayout>
       </main>

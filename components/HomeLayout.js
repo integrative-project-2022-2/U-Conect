@@ -1,4 +1,4 @@
-import {useState, useEffect, React} from 'react';
+import * as React from 'react';
 import { styled, alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -23,8 +23,9 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
-import styles from "../styles/Home.module.css"
+import Image from 'next/image'
 import notificationStyle from "../styles/notification.module.css"
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -96,7 +97,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('md')]: {
-      width: '20ch',
+      width: '800px',
     },
   },
 }));
@@ -133,35 +134,23 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-export default function PrimarySearchAppBar({children, button, notifications}) {
-
-  //  const {data, setData} = useState(false);
-  //  useEffect(async ()=>{
-  //    const response = await fetch("/api/notification_DB_Controller_Consulta")
-  //    const dt = await response.json();
-  //    setData(dt);
-  //    console.log(dt);
-  // });
-
+export default function PrimarySearchAppBar({children, button, image}) {
   const theme = useTheme();
-  const [open, setOpen] = useState(false);
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [notification, setNotification] = useState([]);
+  const [open, setOpen] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [notification, setNotification] = React.useState([]);
   const isMenuOpen = Boolean(anchorEl);
 
- 
-let consult = async ()=>{
-  const response = await fetch("/api/notification_DB_Controller_Consulta")
+  let consult = async () => {
+    const response = await fetch("/api/notification_DB_Controller_Consulta")
     const dt = await response.json();
     console.log("funciona");
     setNotification(dt)
-}
-  useEffect(() => {
-      consult()
+  }
+  React.useEffect(() => {
+    consult()
   });
-  
-  
-  
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -195,24 +184,24 @@ let consult = async ()=>{
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      {notification.map(e=>(
-        <div className = {notificationStyle.notificationDeck} onClick={handleMenuClose}>
+      {notification.map(e => (
+        <div className={notificationStyle.notificationDeck} onClick={handleMenuClose}>
           <div>
             {e.message}
-            </div>
-            <div>
-              {e.ndate}
-              </div>
-              </div>
+          </div>
+          <div>
+            {e.ndate}
+          </div>
+        </div>
       ))}
     </Menu>
   );
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open} sx={{ bgcolor: "#7C7DCF" }}>
+      <AppBar position="fixed" open={open} sx={{ bgcolor: "#673ab7" }}>
         <Toolbar>
-        <IconButton
+          <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
@@ -224,6 +213,11 @@ let consult = async ()=>{
           >
             <MenuIcon />
           </IconButton>
+          <Image src={image.path}
+            height={50}
+            width={50}
+            alt="Profile">
+          </Image>
           <Typography
             variant="h6"
             noWrap
@@ -250,11 +244,16 @@ let consult = async ()=>{
               onClick={handleNotificationMenuOpen}
               color="inherit"
             >
-              <Badge badgeContent={8000} color="error">
+              <Badge badgeContent={notification.length} color="error">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
           </Box>
+          <Image src={image.profile}
+            height={50}
+            width={50}
+            alt="Profile">
+          </Image>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
@@ -288,16 +287,14 @@ let consult = async ()=>{
                 >
                   {<InboxIcon />}
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0}} /> {/*Es el que pinta el texto en el boton*/}
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} /> {/*Es el que pinta el texto en el boton*/}
               </ListItemButton>
             </ListItem>
           ))}
         </List>
       </Drawer>
-      <div className={styles.main}>{children}</div>
+      <Box >{children}</Box>
       {renderMenu}
     </Box>
   );
 }
-
-
