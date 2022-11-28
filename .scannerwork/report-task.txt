@@ -1,0 +1,6 @@
+projectKey=U-Conect
+serverUrl=http://localhost:9000
+serverVersion=9.7.1.62043
+dashboardUrl=http://localhost:9000/dashboard?id=U-Conect
+ceTaskId=AYRqTUvKJRZ-CnJ5NQb9
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYRqTUvKJRZ-CnJ5NQb9
