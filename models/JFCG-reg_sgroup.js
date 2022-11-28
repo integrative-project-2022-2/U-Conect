@@ -1,4 +1,4 @@
-import db from "../repository/database";
+import db from "../repository/JFCG-database";
 
 //Funciona
 async function register(groupId, ownerId, groupName, subject, quantityOfStudents, state) {

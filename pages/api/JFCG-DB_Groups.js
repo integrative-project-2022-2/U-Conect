@@ -1,5 +1,5 @@
 import {register,register_integrants,editar,consultar,borrar} from "/models/JFCG-reg_sgroup";
-import {data} from "/models/ChipaData";;
+import {data} from "/models/JFCG-ChipaData";;
 import {useEffect, useState} from 'react'
 
 async function sgroup (req, res){
