@@ -1,8 +1,26 @@
-import styles from "/styles/Table.module.css";
-import TableRow from "/components/TableRow.js";
-import TableHead from "/components/TableHead.js";
-import TableItem from "/components/TableItem";
-import TableFooter from "/components/TableFooter";
+import styles from "../styles/Table.module.css";
+import React from "react";
+import { TableRow } from "./TableRow.js";
+import { TableHead } from "./TableHead.js";
+import { TableItem } from "./TableItem";
+import { TableFooter } from "./TableFooter";
+
+// const get_group_Data = async () => {
+//   const URL = '"http://localhost:3000/api/dbController.js"';
+//   const data = {
+//     id: "1",
+//   };
+//   const myInit = {
+//     method: "GET",
+//     body: JSON.stringify(data),
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   };
+
+//   const res = await fetch(URL, myInit);
+//   const resJson = await res.json();
+// };
 
 const heads = [
   { text: "Grupo" },
@@ -14,48 +32,56 @@ const heads = [
 
 const footers = [
   { text: "Total de Grupos" },
-  { text: "6" },
+  { text: "1" },
   { text: "" },
   { text: "" },
   { text: "" },
 ];
 
 const rows = [
-  { text: "LosFisicos" },
-  { text: "FisicaMaterias" },
-  { text: "7/30" },
-];
-
-const rows2 = [
-  { text: "RepasitoMate" },
-  { text: "Matematicas" },
-  { text: "24/30" },
-];
-
-const rows3 = [
-  { text: "LaTerceraEsLaVencida" },
-  { text: "Contabilidad" },
-  { text: "29/30" },
-];
-
-const rows4 = [{ text: "AL" }, { text: "Algebra Lineal" }, { text: "13/30" }];
-
-const rows5 = [
-  { text: "F en el chat" },
-  { text: "Electromagnetismo" },
-  { text: "21/30" },
-];
-
-const rows6 = [
-  { text: "Repasito" },
-  { text: "Estructuras Discretas" },
-  { text: "19/30" },
+  { text: "Los Juiciosos Pro" },
+  { text: "Proyecto Integrador 1" },
+  { text: "5/30" },
 ];
 
 const rowsB = [{ text: "Detalles" }, { text: "Unirse" }];
 
-export default function Table() {
-  const UnirsePagina = () => {};
+// const rows2 = [
+//   { text: "RepasitoMate" },
+//   { text: "Matematicas" },
+//   { text: "24/30" },
+// ];
+
+// const rows3 = [
+//   { text: "LaTerceraEsLaVencida" },
+//   { text: "Contabilidad" },
+//   { text: "29/30" },
+// ];
+
+// const rows4 = [{ text: "AL" }, { text: "Algebra Lineal" }, { text: "13/30" }];
+
+// const rows5 = [
+//   { text: "F en el chat" },
+//   { text: "Electromagnetismo" },
+//   { text: "21/30" },
+// ];
+
+// const rows6 = [
+//   { text: "Repasito" },
+//   { text: "Estructuras Discretas" },
+//   { text: "19/30" },
+// ];
+
+// const participantDB = get_group_Data();
+
+function Table() {
+  const [rowsList, setRows] = React.useState(rows);
+  const UnirsePagina = () => {
+    setRows(rows.splice(0, 3));
+    setRows(rowsB.splice(0, 2));
+    footers[1] = { text: "0" };
+  };
+
   return (
     <table>
       <thead>
@@ -81,7 +107,7 @@ export default function Table() {
           ))}
         </TableRow>
         {/* 2 */}
-        <TableRow>
+        {/* <TableRow>
           {rows2.map((row) => (
             <TableItem>
               <p>{row.text}</p>
@@ -93,7 +119,7 @@ export default function Table() {
             </TableItem>
           ))}
         </TableRow>
-        {/* 3 */}
+       
         <TableRow>
           {rows3.map((row) => (
             <TableItem>
@@ -106,7 +132,7 @@ export default function Table() {
             </TableItem>
           ))}
         </TableRow>
-        {/* 4 */}
+        
         <TableRow>
           {rows4.map((row) => (
             <TableItem>
@@ -119,7 +145,7 @@ export default function Table() {
             </TableItem>
           ))}
         </TableRow>
-        {/* 5 */}
+       
         <TableRow>
           {rows5.map((row) => (
             <TableItem>
@@ -132,7 +158,7 @@ export default function Table() {
             </TableItem>
           ))}
         </TableRow>
-        {/* 6 */}
+        
         <TableRow>
           {rows6.map((row) => (
             <TableItem>
@@ -144,7 +170,7 @@ export default function Table() {
               <button>{row.text}</button>
             </TableItem>
           ))}
-        </TableRow>
+        </TableRow>    */}
       </tbody>
       <tfoot>
         <TableFooter>
@@ -158,3 +184,5 @@ export default function Table() {
     </table>
   );
 }
+
+export { Table };

@@ -5,7 +5,7 @@ import HomeLayout from "../components/HomeLayout"
 
 import NewGroup from "/pages/Counseling_Activities/JFCG-creargrupos"
 import AsesoriaG from "/pages/Counseling_Activities/asesoria"
-import JoinAdvisory from "/pages/Counseling_Activities/JoinCounseling"
+import JoinAdvisory from "/pages/Counseling_Activities/JoinAdvisory"
 import RetireAdvisory from "/pages/Counseling_Activities/retireadvisory"
 import UserStory5 from "/pages/Counseling_Activities/hu5"
 import UserStoryJesusGarces from "/pages/Counseling_Activities/Profile2"
