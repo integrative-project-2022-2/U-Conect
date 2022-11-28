@@ -3,12 +3,14 @@ import { useState } from "react"
 import Head from "next/head"
 import HomeLayout from "../components/HomeLayout"
 
+import AsesoriaG from "/pages/Counseling_Activities/asesoria"
 import NewGroup from "/pages/Counseling_Activities/createNewGroups"
 import JoinAdvisory from "/pages/Counseling_Activities/JoinAdvisory"
 import RetireAdvisory from "/pages/Counseling_Activities/retireadvisory"
 import UserStory5 from "/pages/Counseling_Activities/hu5"
 import UserStoryJesusGarces from "/pages/Counseling_Activities/Profile2"
 import Schedule from "/pages/Counseling_Activities/schedule"
+import Home21 from "/pages/Counseling_Activities/home21"
 
 export default function home() {
 
@@ -36,9 +38,11 @@ export default function home() {
       "Join to Group",
       "Join to Advisory",
       "Leave Advisory",
-      "Show Profile"
+      "Show Profile",
+      "Accept/Deny Profesor",
+      "Create Advisory"
     ],
-    fun: [newG, sched, us5, join, leave, showP]
+    fun: [newG, sched, us5, join, leave, showP, acceptProfesor, asesori]
   })
 
   function newG() {
@@ -63,6 +67,14 @@ export default function home() {
 
   function sched(){
     setChildren(<Schedule />)
+  }
+
+  function acceptProfesor(){
+    setChildren(<Home21 />)
+  }
+
+  function asesori(){
+    setChildren(<AsesoriaG />)
   }
 
   return (
