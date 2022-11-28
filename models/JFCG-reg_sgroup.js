@@ -1,8 +1,8 @@
 import db from "../repository/database";
 
 //Funciona
-async function register(ownerId, groupName, subject, quantityOfStudents, state) {
-    const { err } = db.query("INSERT INTO SGROUP (ownerId, groupName, subject, quantityOfStudents, state) VALUES ($1,$2,$3,$4,$5)", [ownerId, groupName, subject, quantityOfStudents, state])
+async function register(groupId, ownerId, groupName, subject, quantityOfStudents, state) {
+    const { err } = db.query("INSERT INTO SGROUP (groupId, ownerId, groupName, subject, quantityOfStudents, state) VALUES ($1,$2,$3,$4,$5,$6)", [groupId, ownerId, groupName, subject, quantityOfStudents, state])
     console.log(err)
 }
 

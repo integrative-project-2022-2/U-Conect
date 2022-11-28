@@ -23,6 +23,11 @@ export default function Home() {
       </div>
 
       <div class="mb-3">
+        <label for="Input-groupId" class="form-label">Numero del Grupo</label>
+        <input type="number" class="form-control"  name="groupId"/>
+      </div>
+
+      <div class="mb-3">
         <label for="Input-ownerId" class="form-label">Propietario</label>
         <input type="text" class="form-control" name="ownerId"/>
       </div>
