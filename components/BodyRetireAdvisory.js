@@ -53,7 +53,7 @@ export default function BodyRetireAdvisory({ idA, user }) {
 
     async function constructParticipants() {
         console.log("entro2")
-        const URL = "http://localhost:3000/api/JoinAdvisory-api";
+        const URL = "http://localhost:3000/api/leave_advisory_api";
         const data = {
           id: idA
         }
