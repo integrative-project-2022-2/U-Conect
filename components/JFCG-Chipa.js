@@ -34,7 +34,7 @@ function getStyles(name, personName, theme) {
 
 export default function MultipleSelectChip() {
   let participant = []
-  const [names, setNames] = React.useState([{name: 'Nuevo'}]);
+  const [names, setNames] = React.useState([{name: 'Isabella'}]);
   useEffect(() => {
     construct()
   }, [])
